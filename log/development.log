@@ -6110,3 +6110,1338 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 71ms (Views: 68.6ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/signup" for 127.0.0.1 at 2018-03-08 13:14:00 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered users/_form.html.erb (500.2ms)
+  Rendered users/new.html.erb within layouts/application (504.2ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 804ms (Views: 776.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-08 13:14:14 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8pDYAFUSe5Pk3GualNjCNfXSoQJR3hG5ryNVOFI8IBvTvavemu7Wr9X1+N8WszueNoYyP4AA5fwAk5qNc5RfEw==", "user"=>{"name"=>"bot", "email"=>"ganeviliyan@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "ganeviliyan@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "bot"], ["email", "ganeviliyan@gmail.com"], ["created_at", "2018-03-08 21:14:14.663501"], ["updated_at", "2018-03-08 21:14:14.663501"], ["password_digest", "$2a$10$bkMTMWy3tvuYN8jUfXSr5uHrb3.QRsLX0LkoNXa9zQQoWGYb6/3Xu"], ["activation_digest", "$2a$10$O0/ti04XgXEGaR3bryqurugzIryUjWDUuWkp0tUsNtSGj8NvRkxWu"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (2.2ms)
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (0.8ms)
+UserMailer#account_activation: processed outbound mail in 355.1ms
+Sent mail to ganeviliyan@gmail.com (17.5ms)
+Date: Thu, 08 Mar 2018 13:14:15 -0800
+From: noreply@example.com
+To: ganeviliyan@gmail.com
+Message-ID: <5aa1a7a78af26_94af3ff8864289fc7680@Iliyans-MacBook-Air.local.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5aa1a7a788290_94af3ff8864289fc7525";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5aa1a7a788290_94af3ff8864289fc7525
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi bot,
+
+Welcome to the PassiveHouseElements! Click on the link below to activate your account:
+
+https://localhost/account_activations/M9EQz6FyCvRz_mr6AegXxw/edit?email=ganeviliyan%40gmail.com
+
+
+----==_mimepart_5aa1a7a788290_94af3ff8864289fc7525
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>PassiveHouseElements</h1>
+
+<p>Hi bot,</p>
+
+<p>
+Welcome to PassiveHouseElements! Click on the link below to activate your account:
+</p>
+
+<a href="https://localhost/account_activations/M9EQz6FyCvRz_mr6AegXxw/edit?email=ganeviliyan%40gmail.com">Activate</a>
+  </body>
+</html>
+
+----==_mimepart_5aa1a7a788290_94af3ff8864289fc7525--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 1009ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:14:15 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 45ms (Views: 42.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:15:30 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (435.4ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (33.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 648ms (Views: 636.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-08 13:15:38 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."activated" = ?[0m  [["activated", "t"]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."activated" = ? LIMIT ? OFFSET ?[0m  [["activated", "t"], ["LIMIT", 30], ["OFFSET", 0]]
+  Rendered users/index.html.erb within layouts/application (659.7ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 716ms (Views: 708.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/102" for 127.0.0.1 at 2018-03-08 13:15:44 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"102"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 61ms (Views: 54.8ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-03-08 13:15:57 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4DK8rHjgZQ3thu26h/98QrRluHdYwZv0x/C+BHTyJWnBH89ytxzIMdyvfv8FlIXpdzErSokfb7FoQHGxVVpaYQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:15:57 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (6.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 49ms (Views: 47.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:15:58 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (27.0ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 75ms (Views: 70.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-08 13:16:15 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A4mY8s7pM7Dw/vEFrH2NXDKkaobVQCIpD6ymGbrlJVYt0f/KNvCY9am+xccV69hlmRcKAYNlvNfJ7Uns7G7RsQ==", "session"=>{"email"=>"ganeviliyan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ganeviliyan@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 80ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:16:16 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 51ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2018-03-08 13:16:19 -0800
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 56ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:16:22 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 64ms (Views: 57.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:16:26 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 51ms (Views: 49.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-03-08 13:16:35 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.3ms)
+  Rendered users/_form.html.erb (11.8ms)
+  Rendered users/new.html.erb within layouts/application (22.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 80ms (Views: 73.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:16:37 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 62ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2018-03-08 13:16:37 -0800
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 55ms (Views: 53.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:16:38 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 59ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-08 13:16:43 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QCaLf8KkBpteeEeJehwPkkZ626HhChTNqyCvUihlwMJufuxHOr2t3gc4c0vDilqr7cm7JrcvijNtYUCnfu40JQ==", "session"=>{"email"=>"ganeviliyan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ganeviliyan@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:16:43 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 49ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2018-03-08 13:16:49 -0800
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 66ms (Views: 62.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:16:50 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 75ms (Views: 68.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:16:51 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 70ms (Views: 63.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-08 13:16:57 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1G6WU2Tx1QjT8a9O73dhbZhGGBpbIQB5rVnEmVgy66T6NvFrnOh+TYqxm4xW4TRUM/V4nQ0EnodrGCtsDrkfQw==", "session"=>{"email"=>"botilko@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "botilko@yahoo.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 79ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:16:57 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 65ms (Views: 63.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["email", "ganeviliyan@gmail.com"], ["id", 102], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "activated" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-03-08 21:17:59.373039"], ["activated", "t"], ["id", 102]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["email", "ganeviliyan@gmail.com"], ["id", 102], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-03-08 21:18:21.226742"], ["admin", "t"], ["id", 102]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:18:44 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (594.1ms)
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:18:45 -0800
+  Rendered layouts/_shim.html.erb (1.2ms)
+  Rendered layouts/_header.html.erb (5.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1060ms (Views: 1051.1ms | ActiveRecord: 0.0ms)
+
+
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 65ms (Views: 60.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-08 13:18:52 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V8k1Wn9BOQuRAQqu/oy88kbJpTevI2G7LZ8RJsRLnpF5kVJih1iSTshBPmxHGunL7XrFsPkG/0Xr3v7TksBqdg==", "session"=>{"email"=>"botilko@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "botilko@yahoo.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 136ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:18:52 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 59ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:20:42 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (242.3ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 328ms (Views: 316.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:20:46 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (533.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 589ms (Views: 586.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-08 13:20:51 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/gCvwr77l7Vm5AuC0xBUX+b85FxsIhXQq7ZEmAalZKDQWMj6RuI88D+kP0BqhgFmTU+E2zoHiy5t96ttUC6QRw==", "session"=>{"email"=>"botilko@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "botilko@yahoo.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 110ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:20:51 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 48ms (Views: 46.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20180308013217)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180308013217"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddIndexToUsersEmail (20180308015607)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180308015607"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPasswordDigestToUsers (20180308020434)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180308020434"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRememberDigestToUsers (20180308064018)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_digest" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180308064018"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAdminToUsers (20180308181619)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180308181619"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddActivationToUsers (20180308191000)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "activation_digest" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "activated" boolean DEFAULT 'f'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "activated_at" datetime[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180308191000"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-08 21:21:20.218603"], ["updated_at", "2018-03-08 21:21:20.218603"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Example User"], ["email", "example@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:33.888777"], ["updated_at", "2018-03-08 21:21:33.888777"], ["password_digest", "$2a$10$wh0a2kPUqr1Xn0y6HDN5TOrt2wx4hL3ZNga3qBlS/ISg6vrynD.l6"], ["activation_digest", "$2a$10$AlJ.q7DJo5nBOGJfIR3GBuMNZ7xFxihVcQiRrhAyl4Pm8hjHcjoCq"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:33.784392"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-1@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Hortense VonRueden"], ["email", "example-1@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:34.544758"], ["updated_at", "2018-03-08 21:21:34.544758"], ["password_digest", "$2a$10$p1RdlX6/JHLbq8SK029GIOhJ9g7vTh281ysAeqjaVtA1QPtzZpTvS"], ["activation_digest", "$2a$10$SuQmIizCtGok9jAhWHMYKOiKKuJxBQrP5VEk8PqJn0S1OXbzT82VC"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:34.464825"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-2@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Dillon Kunze"], ["email", "example-2@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:34.707682"], ["updated_at", "2018-03-08 21:21:34.707682"], ["password_digest", "$2a$10$gb8mXHjL80Y7bQFaJVovFOMhZFSaaXvrcIqiDFSX4s7cWfIGdQs9O"], ["activation_digest", "$2a$10$v9xNeswO9fQAItV2YItHte.0R1dhCrpqe.t92cf846QsuTAEL1962"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:34.629618"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-3@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Coralie Becker"], ["email", "example-3@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:34.868939"], ["updated_at", "2018-03-08 21:21:34.868939"], ["password_digest", "$2a$10$WxVW.BDF64qkyNG5aDYLvOrVv6pnS385bGMgy5yYnEwVJ69X5DMpW"], ["activation_digest", "$2a$10$k4okVazw7npKDIGH4ypbz.9pQA2FEFWIcwvbOMGZby.eg4PAR.T0u"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:34.789741"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-4@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Maribel Muller"], ["email", "example-4@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:35.034256"], ["updated_at", "2018-03-08 21:21:35.034256"], ["password_digest", "$2a$10$qe0M4qLuAMESixv3eSDLWeRZ9ZgdRd2PZJLO3fsUDZ05zJ4fh1M/."], ["activation_digest", "$2a$10$3WwhjHIrBpoN5x4D5y.Wteubx7okDYxd9E.e7IY0qine162J/Wu46"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:34.953328"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-5@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Candida Ratke"], ["email", "example-5@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:35.191223"], ["updated_at", "2018-03-08 21:21:35.191223"], ["password_digest", "$2a$10$z3bG.GRaSlog/TW9kRo9keYYWzMjr84xIZBmE.6Uh4oXN4mCe0iFm"], ["activation_digest", "$2a$10$0JYLbeefpQec8QARl3DB1.EEANUD0DTOVr/3GlL1HEgRd.6PjvL2G"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:35.112179"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-6@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Clementina Medhurst"], ["email", "example-6@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:35.355142"], ["updated_at", "2018-03-08 21:21:35.355142"], ["password_digest", "$2a$10$rBAt25nq1eE4DDfHB1BFTeYL6fkcD1Di6MCN5Bp0PIIclyJMyC3U."], ["activation_digest", "$2a$10$Rqwz7/2bLxCNZkAiNpciduuQGPlSBgyizoMb7N9.MauD5gb7pfqWu"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:35.274843"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-7@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Sarina Kunze"], ["email", "example-7@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:35.516143"], ["updated_at", "2018-03-08 21:21:35.516143"], ["password_digest", "$2a$10$0yX/f5.FYVDD9FslgDhi5eqfNztws66C6t5ZRGE7ifREMo.Q6KoDi"], ["activation_digest", "$2a$10$9v8yJRK7Gg5naAeecbkmW.5fL3ZYi3uBDozuRTdEgUis.iN4KTX5y"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:35.439023"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-8@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Wilford Auer"], ["email", "example-8@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:35.684587"], ["updated_at", "2018-03-08 21:21:35.684587"], ["password_digest", "$2a$10$RrtciGDgsygVf/stwplLdOxZNomYsG9TIHPDjyojJqx0naiJo3j7K"], ["activation_digest", "$2a$10$PlC6bY8WCk.srXFkoEHecufrZ2DhwFrqJn42rhs4F8Iep1NGhgDAu"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:35.595157"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-9@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bartholome Marks"], ["email", "example-9@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:35.848846"], ["updated_at", "2018-03-08 21:21:35.848846"], ["password_digest", "$2a$10$PScCsNN2NEbHbLXzu0vL.OcdXPRYqA01pnjCxVB4wKp3PreBO9.t6"], ["activation_digest", "$2a$10$B59b570.JAIf.vciaRdLRu0Z6eRqtdgHKJFGjxEj6EXrJ3CrE5vsG"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:35.763320"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-10@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ambrose Abbott"], ["email", "example-10@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:36.013419"], ["updated_at", "2018-03-08 21:21:36.013419"], ["password_digest", "$2a$10$LcOChoatjYMVJSdM99YuIeTMrd8P9JwcMu0d9.yd36/.6ahRzXReG"], ["activation_digest", "$2a$10$nVX4Z4LoNF/JnQijOmqljuco1BhYwoC7S9IDA804lkF9W/44nLHhG"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:35.939429"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-11@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Amie DuBuque"], ["email", "example-11@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:36.181404"], ["updated_at", "2018-03-08 21:21:36.181404"], ["password_digest", "$2a$10$HBa9G3G3HEI/q.TAPHrwWO7S5PF/WCCaHKslcoaUyjbQDJekfkhzG"], ["activation_digest", "$2a$10$AxbOoBB4t2pAKYkIQrSNkO6UKP0icdJ1LrlwayYNYezv3V/cgOosO"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:36.097423"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-12@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Hayden Price"], ["email", "example-12@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:36.364104"], ["updated_at", "2018-03-08 21:21:36.364104"], ["password_digest", "$2a$10$wvO30rpadBn9kOKRim2YgucQ./8Igkj4z3R.2gofBZTxjHIuVxjSu"], ["activation_digest", "$2a$10$/lKGEUBI3S9HUJn9fn/vz.craIW2OzdMvCmzq7JeGd9zHwWrH7ASe"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:36.278159"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-13@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jonatan McKenzie"], ["email", "example-13@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:36.526769"], ["updated_at", "2018-03-08 21:21:36.526769"], ["password_digest", "$2a$10$Xq5shz3a.VmW4SNQyz42xOUdoTCJeoH0u8oMmP5qveMrbBTAJQ3am"], ["activation_digest", "$2a$10$yK5LJZ7inV2Wgm4iznCWfuYaQXnEDd5vHYMtGVSpLIDKx/8e5ggpK"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:36.439895"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-14@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Louvenia Heidenreich"], ["email", "example-14@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:36.716252"], ["updated_at", "2018-03-08 21:21:36.716252"], ["password_digest", "$2a$10$k/I0geSFjD46g0dvyPZ3eOWQsM/eyzSIs23TZFIN5XkHs0Xi8xOD6"], ["activation_digest", "$2a$10$hiqaJfCh8zvuN2Klq0YiEONk0lMYvf8nJ8f0Ql4fyjteCgK3jQ.UO"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:36.630882"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-15@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Dr. Abner Effertz"], ["email", "example-15@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:36.890447"], ["updated_at", "2018-03-08 21:21:36.890447"], ["password_digest", "$2a$10$3L7zAP/gmL4sKCui1Y.8Y.GcNoNnJ7q.UoQhwXPGX2yPI7SdVboau"], ["activation_digest", "$2a$10$FS8N3B5BgcZ9bGemDq.5yeCsP1AGDd38cU1Xnu3.r0D9QWbXHOvgO"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:36.809497"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-16@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Lexi Krajcik"], ["email", "example-16@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:37.063799"], ["updated_at", "2018-03-08 21:21:37.063799"], ["password_digest", "$2a$10$9KD7XgfM7MUsV73x5pbjEOTqPOV0CdFhm3tYkE3jv/D42tpiH5oUq"], ["activation_digest", "$2a$10$zk1JRALe4mPNv.0wNnoy/ukocGK1siOvS5zqUylqXdxVRMqialcjq"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:36.971353"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-17@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Yazmin Oberbrunner"], ["email", "example-17@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:37.246720"], ["updated_at", "2018-03-08 21:21:37.246720"], ["password_digest", "$2a$10$ZN5c.jsDOFM06pTD3QuICON63RUR5y80UgJUgDx5EMAiHXEYxCln2"], ["activation_digest", "$2a$10$43tYLiDNdjpcAeUX/KrtdeQ8xOdrKpgBSAez9UGf.Ed06BhfzNewO"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:37.157864"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-18@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Dr. Parker Gislason"], ["email", "example-18@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:37.397367"], ["updated_at", "2018-03-08 21:21:37.397367"], ["password_digest", "$2a$10$pgcvDRti3EFcLV4mncJOO.a17d9YJifqGVc7nnwSkxe0pRxlsAt9C"], ["activation_digest", "$2a$10$lfXjBUA3ZTSa4mNs4E8wx.kxLgeJMikWUd9npORwnV4wrqOJD46zy"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:37.321726"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-19@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ocie Bins"], ["email", "example-19@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:37.561875"], ["updated_at", "2018-03-08 21:21:37.561875"], ["password_digest", "$2a$10$zM4a46tIScjapHpYOaeFC.bqFu2GfMVzRGNsXfHP3tXCGKtA3AokC"], ["activation_digest", "$2a$10$Tr1HePvEcuj.Bq8ci28tzeX8V1rUJboqT2gDc.K/nV3fbfw2NJL8K"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:37.475051"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-20@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Zaria Halvorson"], ["email", "example-20@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:37.727417"], ["updated_at", "2018-03-08 21:21:37.727417"], ["password_digest", "$2a$10$UQ0RUNXZ31Cc3kEOpOLgpeRzsyd7kfHc2L00wjJD./6eaxLtpWRl."], ["activation_digest", "$2a$10$O789cGzLYNdMs.A0lMhGtuXRxrCqMqkoSbrRuR.Zbl.KkPSPfnaRG"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:37.636733"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-21@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Howard Casper"], ["email", "example-21@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:37.884867"], ["updated_at", "2018-03-08 21:21:37.884867"], ["password_digest", "$2a$10$P0TUxtjzBjaFrUJFo0KxH.ayYKh1bwQYDSw6AqoGm0/98Vmzj606G"], ["activation_digest", "$2a$10$NwJj/rzdiRHxNpAVxXorkewpezyyQjYUQLoGnE31f.Q/9E80yPKhS"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:37.802123"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-22@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lulu Moen IV"], ["email", "example-22@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:38.047614"], ["updated_at", "2018-03-08 21:21:38.047614"], ["password_digest", "$2a$10$FI9qhQeOuVfaiwwo3Zz9tORmN7c7F.HFMdZvJgwSqoYVpyW1cboRa"], ["activation_digest", "$2a$10$Xsp6h53yHe7lZO00XvTssu1Y3a9420juIGoDqHLTE/M2QMElf.lla"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:37.959806"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-23@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Chloe Eichmann"], ["email", "example-23@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:38.208118"], ["updated_at", "2018-03-08 21:21:38.208118"], ["password_digest", "$2a$10$xrT1yBPbM3lc/WXjXirKn.FEe4n7haTpiSmq3caGSHISgb0q1ryNm"], ["activation_digest", "$2a$10$iNPTtgvQs4QAxocSghZbA.6KCAO0E4KBmLEeawhWzNFZeZ.fn4X6i"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:38.122119"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-24@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Marcia Prosacco"], ["email", "example-24@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:38.380906"], ["updated_at", "2018-03-08 21:21:38.380906"], ["password_digest", "$2a$10$IC.qClD44xTYQkAJTAPzW.Tr.glqWviUw49PKLPOny1LMKiXjnRMy"], ["activation_digest", "$2a$10$UPYj0we1AH4XzGNJwoeNpubgwdP8s7Egf4VIPt2IbUghzqkC1EEUG"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:38.286313"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-25@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Moises Gerlach"], ["email", "example-25@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:38.547190"], ["updated_at", "2018-03-08 21:21:38.547190"], ["password_digest", "$2a$10$GbSBTzOXwRHJuUO5SkpEtOXL97a2nVxxpnl2pIkyOZHafui5RFGP2"], ["activation_digest", "$2a$10$KREAV/YBxVlbdv5MKPrwwutp/eXXc8TZnMMPJcicBFdP0ReblH3aq"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:38.472253"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-26@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Electa Gislason Jr."], ["email", "example-26@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:38.702534"], ["updated_at", "2018-03-08 21:21:38.702534"], ["password_digest", "$2a$10$OObEtvYaO3I.Wb3oTftAUuG7LaJHEEEYuO9wY3aalbxCj7CIE9q7a"], ["activation_digest", "$2a$10$WcyXDPIDgeW95kCo7YW9QufYebUoPoVRt4PYAnToG.iTSUR7fZ4O."], ["activated", "t"], ["activated_at", "2018-03-08 21:21:38.622961"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-27@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mallory Swift"], ["email", "example-27@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:38.854526"], ["updated_at", "2018-03-08 21:21:38.854526"], ["password_digest", "$2a$10$8Xv6bdl4MKY6VPqJaYUVpeedU44SIKiAFWCyYMgENLtGkvagHFkxC"], ["activation_digest", "$2a$10$ngDLs9vQOZHKKh1jU6AXs..NCjv27ZzgarrFUazRg.9k9y5D7hNNO"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:38.779634"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-28@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Jamel Hand"], ["email", "example-28@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:39.025714"], ["updated_at", "2018-03-08 21:21:39.025714"], ["password_digest", "$2a$10$MzpjbHmS5uMis9dI9mcFaeSFBTMpQAVOvqt04vMOyqZ84B6RvZbja"], ["activation_digest", "$2a$10$QvdrIV894lBGxxwr41Vi0ueFaMlk5A2XeV4.WYFkcEApfbTVWvIWe"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:38.943305"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-29@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Hillary McDermott"], ["email", "example-29@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:39.217761"], ["updated_at", "2018-03-08 21:21:39.217761"], ["password_digest", "$2a$10$MxMadZ9BDa2fvC.JN41/TuHydX160EWmyCwx/xXxQOQX.nxhx6Y8K"], ["activation_digest", "$2a$10$rHthJKLM2GGr.fzd3CGTDeJZs7StV0fBn97p2VyoXLGVj.9GOaPO2"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:39.117902"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-30@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Henri Pollich"], ["email", "example-30@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:39.405656"], ["updated_at", "2018-03-08 21:21:39.405656"], ["password_digest", "$2a$10$CqrrPBC/b5BXZbDTI9kMqOpfu5yu2/sc/x1dO.4CouVy/NTfXi8AO"], ["activation_digest", "$2a$10$6atdKE66sWkDw5srGXmjEe77hs4dWPZam.Q0Rrg/1n9q8L6L0Traa"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:39.318350"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-31@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Deborah Doyle"], ["email", "example-31@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:39.599544"], ["updated_at", "2018-03-08 21:21:39.599544"], ["password_digest", "$2a$10$LzJsK3lWHYMXjWtfiJwODOkHmjdpMtZEYA/2RB8rN3ZFPOC72rcii"], ["activation_digest", "$2a$10$l6sz50xWUCZ4I8f5Y3YS7Op4H78IS99g4YqPhPP5sBrkkt2wt820C"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:39.502237"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-32@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lonie Flatley"], ["email", "example-32@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:39.769240"], ["updated_at", "2018-03-08 21:21:39.769240"], ["password_digest", "$2a$10$Tuv6wHjTdsZ2gczPmSayG.8KoiHHUqdZCUKBnqY2PSXtLVwWm4mSG"], ["activation_digest", "$2a$10$/C29t47qPTQoKouPaWhp7OZixqCACwhAPeUimdnH.NJwmzh5ymHZu"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:39.683095"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-33@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Zakary Schamberger"], ["email", "example-33@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:39.946248"], ["updated_at", "2018-03-08 21:21:39.946248"], ["password_digest", "$2a$10$SUTk7rXuJJ6XTuXQZgegMea6ManieCd6jcO86qSASkn7oW7QYaPNC"], ["activation_digest", "$2a$10$XFG0JKnG47A.gpmSEeH/..UC.9YaptagX.E9l3WgMlXBhmN2AolhS"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:39.861858"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-34@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Selina Baumbach"], ["email", "example-34@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:40.116875"], ["updated_at", "2018-03-08 21:21:40.116875"], ["password_digest", "$2a$10$APnpkX4Ju5DS7v8mEUJpKeY23ueXoXw.MteEvW0GO5GTpm1Bj/gkW"], ["activation_digest", "$2a$10$MIZ/jq2YAHoeWUIusKNauOcF0CBrx83jHiZ..X/bfPb0OrdEDtjW."], ["activated", "t"], ["activated_at", "2018-03-08 21:21:40.034748"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-35@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Dr. German Kilback"], ["email", "example-35@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:40.294811"], ["updated_at", "2018-03-08 21:21:40.294811"], ["password_digest", "$2a$10$x/uExgLw/3XYIYFh8HNOgecVML2xjYQLL86pEB2Lj3HBI2ec4J60G"], ["activation_digest", "$2a$10$n7dMTianAY30gsVpW6alQ.SOBtKG3S33Z7p2KK2wvN4hePb5CJxdC"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:40.213947"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-36@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Trystan Crist"], ["email", "example-36@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:40.465439"], ["updated_at", "2018-03-08 21:21:40.465439"], ["password_digest", "$2a$10$YzWn2RircD2VnkntNxvnTePIs4jlSJODvwsOrQQzsGm6ZBf768YQm"], ["activation_digest", "$2a$10$NbXaQ0cvntYq1phx728vJ.M8GQ.dQGiqbGExAeWUnYmnOex3PY62a"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:40.371976"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-37@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Agnes Shanahan DVM"], ["email", "example-37@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:40.656486"], ["updated_at", "2018-03-08 21:21:40.656486"], ["password_digest", "$2a$10$d1wq/kO1SS3auSa7YXEpT.hHvbBIj2lD.aLn3g93nhjZT7LKw3mB."], ["activation_digest", "$2a$10$v4xqfiyVYYYRtimMkpn/deFX3ox2zmKqgOblIuq8Q9styge2nvxnS"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:40.554987"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-38@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cathrine Pfannerstill"], ["email", "example-38@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:40.844150"], ["updated_at", "2018-03-08 21:21:40.844150"], ["password_digest", "$2a$10$vuQnoWPYrT9yHT/qGCclbe6J6t/rgBJCNx1sv3bGrRK9pZSb6Trjy"], ["activation_digest", "$2a$10$hUND5xOKqu/PcxIdj3ucce3GVtux.I2v4f2Ap4iuItZ8sYlgvpQ7O"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:40.754052"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-39@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mariane Hessel"], ["email", "example-39@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:41.010550"], ["updated_at", "2018-03-08 21:21:41.010550"], ["password_digest", "$2a$10$dPbbejIpsWMy.y9Qjx/ra.BhdZvmPEJg3IGkmknrnU8epaA1Nq26q"], ["activation_digest", "$2a$10$CV9nWY.bdlrEU45TwFq48uRd72aUfR9NBWP12aGX1gQ7mxZ5ChKTC"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:40.921340"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-40@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Catharine Kertzmann"], ["email", "example-40@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:41.186441"], ["updated_at", "2018-03-08 21:21:41.186441"], ["password_digest", "$2a$10$z5FZF2fx00ayiNe/63fzfuVZ6sWlgSC8hniBOqQf7eN3oaJm0bAOu"], ["activation_digest", "$2a$10$2tVh3Kh1/MrKH/ALC6TpUO9JtRp3EOV49zadgmUKywjZauSiSYAiG"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:41.094430"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-41@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jayme Wilkinson"], ["email", "example-41@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:41.364782"], ["updated_at", "2018-03-08 21:21:41.364782"], ["password_digest", "$2a$10$xyzqB9UJp7U0IytgzanL6uzDophYIGsr85ZUyUuMkeG4pH27zAqIW"], ["activation_digest", "$2a$10$0cVaUJoydriY8GtWv5WGEuUL2D76lx8wRFczzxW1iHVSCJ/PSZTii"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:41.267645"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-42@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jermaine Marvin DDS"], ["email", "example-42@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:41.517211"], ["updated_at", "2018-03-08 21:21:41.517211"], ["password_digest", "$2a$10$Cu1b8TAS33.9lTZinfcjg.bLx/qr0HigDVaDIzQCMZrErUkDmD8MC"], ["activation_digest", "$2a$10$KkPAKdz8lKJq0sATt0mwweLOL6YcMvxdrWL0c0RS2Dc/db0Xd9qQ6"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:41.442234"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-43@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Conrad Blick"], ["email", "example-43@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:41.692142"], ["updated_at", "2018-03-08 21:21:41.692142"], ["password_digest", "$2a$10$EoLahlR6D5Oc3XMemssrbusWGD.tqCO10/K9miPEvr.If03TMtWvG"], ["activation_digest", "$2a$10$iXJ7jIvgGTNTFP96Ze5/jOJrQ7JCUdDASID92Gxx77kIQuEHvFObm"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:41.610188"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-44@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Brandon Harris"], ["email", "example-44@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:41.874610"], ["updated_at", "2018-03-08 21:21:41.874610"], ["password_digest", "$2a$10$NibWad.I0W64UTzQ4UmA3.lhzG3v8jWmj0VGjfrnWAY6zeFJ6.VD6"], ["activation_digest", "$2a$10$NjsHL8Qkt6Yryc4BGMHzA.BBzHD4kDQf1kUv/a96Q8eI880KxsZ0a"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:41.781803"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-45@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Katelyn Schaden"], ["email", "example-45@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:42.050876"], ["updated_at", "2018-03-08 21:21:42.050876"], ["password_digest", "$2a$10$uPCwu7d6oXMrMWwvgjI3y.MzyxmDMlrQBRlxpkkC5ZZRNmvHzVQSW"], ["activation_digest", "$2a$10$fcsq5I/esy.9uABKgR6oFO30nBrrmnYT7mYSXRfudfafbosu2zBvm"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:41.962378"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-46@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Kamron Dietrich"], ["email", "example-46@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:42.223990"], ["updated_at", "2018-03-08 21:21:42.223990"], ["password_digest", "$2a$10$opH99BwTFAIrGXr7795jVu2W6CK63YDX1/9ySUI3eXACcokO0qQem"], ["activation_digest", "$2a$10$etU52IRTPSx8jqjcQU.dE.pIJKZDIgHQjMFSRomRMwd7YFYNq0Zr."], ["activated", "t"], ["activated_at", "2018-03-08 21:21:42.135908"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-47@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Everett Hand"], ["email", "example-47@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:42.401943"], ["updated_at", "2018-03-08 21:21:42.401943"], ["password_digest", "$2a$10$bJlxHqVVGJ8h3vFoducBB.GXpbxzAysHxXkKe0WAqMMkcLNHgh6ty"], ["activation_digest", "$2a$10$f6xPmLnKfFjKU8DvWjmHJOF8U.RfYFH.LdYAVWxzRs2JACaPubFJu"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:42.306546"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-48@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Giovanna Howell"], ["email", "example-48@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:42.562203"], ["updated_at", "2018-03-08 21:21:42.562203"], ["password_digest", "$2a$10$.UKhqop7Jsz1WqPFWAtxeeg.HHMGp6dOF3MgZ6Noas/8DbhPRB0oO"], ["activation_digest", "$2a$10$HKsTAh6g7DDD12s7SkO4ie2Ma/9J4MGuAxDRJ5Va7sJ3sHYXk/Z8C"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:42.480215"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-49@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Maye Torp"], ["email", "example-49@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:42.737256"], ["updated_at", "2018-03-08 21:21:42.737256"], ["password_digest", "$2a$10$c3qAu72o8FaKxQlo28slrOmXhUUs.CJ7AjqBuv9aXhvWUX/0KJWBO"], ["activation_digest", "$2a$10$r9Zt8NfXS2kxWN715dWaPuBGA7VtUjQy.a5Xsby5BC6rNrWFRtN7u"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:42.645105"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-50@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Clifford D'Amore"], ["email", "example-50@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:42.917449"], ["updated_at", "2018-03-08 21:21:42.917449"], ["password_digest", "$2a$10$/BeVtFM3.6weWReTFtESAOLBzxWKadpDFmQaMfgSelstmTpIJ22CC"], ["activation_digest", "$2a$10$ecHnUVtRRbWhzPuoFdItLuT0H4rIUVxPxRv2pGFT.t9IqMJDk6GGW"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:42.829568"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-51@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bernard Deckow"], ["email", "example-51@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:43.098432"], ["updated_at", "2018-03-08 21:21:43.098432"], ["password_digest", "$2a$10$ExF20QQZk5Bv7XgyHaQTWej/4VEZ/uZp/qN55BB6VdEtdrasb20.K"], ["activation_digest", "$2a$10$V6MCtAdLz0BnxGGlqtxtt.AORaTv.lvXfoXXF8qB3OeJHHhKqZ/x6"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:43.015218"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-52@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Ms. Cyrus Hermiston"], ["email", "example-52@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:43.284838"], ["updated_at", "2018-03-08 21:21:43.284838"], ["password_digest", "$2a$10$3OTUl0.1q/MdOdjYiIsC3u2tG3bnq62e/737yixE9aal2/t2/DECu"], ["activation_digest", "$2a$10$nOOrUKkJMJodgHshGHhVQ.rHPqBmFJaKw1qQrWLB27LQd52HHlsfi"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:43.188131"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-53@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Katelynn Braun"], ["email", "example-53@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:43.447560"], ["updated_at", "2018-03-08 21:21:43.447560"], ["password_digest", "$2a$10$80AZK.YZ/c0cIbQsskrTueGPly5u4KqPbTm3eCyKaDpeQzV8adAJa"], ["activation_digest", "$2a$10$yfs2zgS3UGolkhuEDiZOLee9dTaAatcaixg8Jc6mc0Oh3kBpeRMae"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:43.361303"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-54@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bertha Kilback"], ["email", "example-54@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:43.617585"], ["updated_at", "2018-03-08 21:21:43.617585"], ["password_digest", "$2a$10$wnxO0OFuPud.p/tZlkn4n.Wh7Sy1o5.agNRybFv9SKuTSxw24iW.e"], ["activation_digest", "$2a$10$PVdj944Dr2jNfCWFhj89H.K/jNsMxb14PssP0O4cgA.6w6J5uMOZi"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:43.543214"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-55@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Marie Hoppe"], ["email", "example-55@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:43.773437"], ["updated_at", "2018-03-08 21:21:43.773437"], ["password_digest", "$2a$10$ZpYZap3mfkg9VdhE.1nnXeLP5JQx3cWOpQwhxgEFtIiYx6vbFJX6W"], ["activation_digest", "$2a$10$IKRoXERGI2zLkGLsaHaQZeFxSOnrI9wtblFVl40R1cXFWR/kM3GXm"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:43.698182"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-56@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Armand Greenfelder"], ["email", "example-56@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:43.934273"], ["updated_at", "2018-03-08 21:21:43.934273"], ["password_digest", "$2a$10$0saAGL1KZied2kDURBqA6ugHcRri6JR1pr.InP2BFiShwVx3e6H0G"], ["activation_digest", "$2a$10$rgf8AFuFbvBYnHow7hspPu1cnAazmP1PDqop4V2Z6QXNyEDXzDNJO"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:43.854381"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-57@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Hilton Powlowski"], ["email", "example-57@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:44.109210"], ["updated_at", "2018-03-08 21:21:44.109210"], ["password_digest", "$2a$10$rhDH9GAMfpQBY5OrdY2gzO7atO.qfDMM6QOTDDBJmxfwtKsr65AhC"], ["activation_digest", "$2a$10$VXGrodzVUSIEUjMBB6aYY.13A/YpLf6ZsQMBP579Zij6N1/xA8URu"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:44.021997"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-58@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Gillian Sauer Jr."], ["email", "example-58@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:44.293173"], ["updated_at", "2018-03-08 21:21:44.293173"], ["password_digest", "$2a$10$G.X5nbTsAO9cwF1VGQ2XQusiNFsvFTqh75xQDvLhkSeEPZGwvrWtu"], ["activation_digest", "$2a$10$8HDwiK1lIc9KEEM6RLM.WepftRI/EtoYyFMPAkWGtpBBHkpoFYBLS"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:44.196281"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-59@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Gage Marvin III"], ["email", "example-59@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:44.470017"], ["updated_at", "2018-03-08 21:21:44.470017"], ["password_digest", "$2a$10$UnCNdgJ6oWx6Q1xh1CVqd.0z/85WgyZgq4ml95TAWNjPw/p5fcAxq"], ["activation_digest", "$2a$10$HM9rx38nxbQA0k8dLhI2DeBH7cvADKaVFXlkmZVyPjK4QnfzrdnbG"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:44.384567"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-60@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Bernhard Grant"], ["email", "example-60@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:44.628529"], ["updated_at", "2018-03-08 21:21:44.628529"], ["password_digest", "$2a$10$8nDSjxom4IT0QFBWHlfj0uJbXGi6rFhryTrNiQkvqCnozjRxcCp2q"], ["activation_digest", "$2a$10$xqxUZUqcS4xmboTm.P/vs.0jlzvxgPk9ny68rV5qEAok4oLo8Y3LS"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:44.551187"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-61@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bud Pouros"], ["email", "example-61@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:44.790001"], ["updated_at", "2018-03-08 21:21:44.790001"], ["password_digest", "$2a$10$omxVqOjaM/pv5rps9ywToOpOgkwnf3pnMWAGpb8NKgxzJ6nMb1C3G"], ["activation_digest", "$2a$10$nc513bjT0ystoYufoj2Ceeg7atcD173aHjzljCGYIenSJ9RFiAnWC"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:44.704251"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-62@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Roxanne Cummerata"], ["email", "example-62@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:44.975679"], ["updated_at", "2018-03-08 21:21:44.975679"], ["password_digest", "$2a$10$s5a3CKtalwZZZqv3FdiRmOU1Q3CrUwbycPFT0CazxngRflhNOZVxS"], ["activation_digest", "$2a$10$vejYCyQr0TZNN4pqxgMNiOWbYXGJqGhQtObDhxLAJjVk.oxy9lOQ2"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:44.882314"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-63@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Miss Kaitlin Nitzsche"], ["email", "example-63@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:45.165139"], ["updated_at", "2018-03-08 21:21:45.165139"], ["password_digest", "$2a$10$6rnPiCadGqmTIl5vgCW2JuGg0TwV4O0pWPi4eZObY9kZHTZTinvKu"], ["activation_digest", "$2a$10$JTDWIL389cixnRoQGEFcUecwdMZ6iKHmVpxxCLDMa6Z5Hhpo9DDZq"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:45.072044"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-64@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Vella Carter"], ["email", "example-64@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:45.342671"], ["updated_at", "2018-03-08 21:21:45.342671"], ["password_digest", "$2a$10$EOUgkjwKhZ4ll3BT28uxC.QFd5uuG2txmzeQeytgx85h/Yienr62e"], ["activation_digest", "$2a$10$ISW5s6XIl8NnO3MyDUqXD.XQCHQi1DooIqA6R5EerDqwCMIzERy2K"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:45.259535"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-65@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Freddie Fay"], ["email", "example-65@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:45.509189"], ["updated_at", "2018-03-08 21:21:45.509189"], ["password_digest", "$2a$10$f.o3/sK/CUnjHeG.2eEfzu7P7QiYuF/B40ds5k9Qjini8OBM8TaTG"], ["activation_digest", "$2a$10$XX/0nWS5pCrNozUOq/Ws9Ou0Lx4F7VWQ8cFhdwQVwcShijp9mrV4m"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:45.421702"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-66@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Brooke Hettinger"], ["email", "example-66@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:45.673994"], ["updated_at", "2018-03-08 21:21:45.673994"], ["password_digest", "$2a$10$wGM/NjRr03aNrSvFBNJPLeSrmsdfgx.QWUKLc8n1XHo9EX3nPt2Pe"], ["activation_digest", "$2a$10$Z3bxc38RhniTKIqRI4t5fuwnbG4eXLlsWrlnIAJ1h76YDyuATiciW"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:45.591613"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-67@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Blaise Turner MD"], ["email", "example-67@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:45.826338"], ["updated_at", "2018-03-08 21:21:45.826338"], ["password_digest", "$2a$10$5LaaZPor.urWxmr2uVkSIO/mssPjHPRCz4s4Z2rgc/C8HLj5Ezwv."], ["activation_digest", "$2a$10$cqWBILyrAroK5UloT5rGF.l2UX0zW/1k2/gclk6hstIDNDHu0Yvjy"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:45.749414"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-68@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Alize Macejkovic IV"], ["email", "example-68@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:45.992858"], ["updated_at", "2018-03-08 21:21:45.992858"], ["password_digest", "$2a$10$GOkB6hA1hWzS7ZhHzPEcK.C2XjTFQpjpHH/l9pqvCmmCrejjSCsFK"], ["activation_digest", "$2a$10$c88e/6ZswPAdoDi63xV8Lewa3e5WvJuQzz4nctNKavw1Cr7gTaU3G"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:45.907094"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-69@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Larissa Klocko"], ["email", "example-69@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:46.169984"], ["updated_at", "2018-03-08 21:21:46.169984"], ["password_digest", "$2a$10$O1FpcV6JX9iXKGyHyE0UR.gWs2UG1IHxM7xpapqZ6uAn26xaATZoy"], ["activation_digest", "$2a$10$Hxw.URP5ghy77jProyvMpefa2C5pLDJep2UtoxjvOCjrbsE5uvBmu"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:46.087368"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-70@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Aron Conroy Sr."], ["email", "example-70@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:46.345144"], ["updated_at", "2018-03-08 21:21:46.345144"], ["password_digest", "$2a$10$k9yjV3rmxIuEZ004Z3MJLO4kXrtzh0prm4DwfvqxpJdMWK1JC.Ij."], ["activation_digest", "$2a$10$tyumvYwD/bPZVk78GJnHPuDNuNPHCmsiEYCviNJApBFuZCwFZ9Vbu"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:46.256286"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-71@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Nyah Welch"], ["email", "example-71@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:46.519399"], ["updated_at", "2018-03-08 21:21:46.519399"], ["password_digest", "$2a$10$e8VJS.bGu69hj7cmLfSNE.LllCuxuHP5qmMtfz/jG3GgnieGNR5nG"], ["activation_digest", "$2a$10$Q.Cztq5uo17FFDvHc8OJquHoTYOTQ4T8JLWTT434ni.cUukqU6qDS"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:46.426352"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-72@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Miss Nikita Stoltenberg"], ["email", "example-72@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:46.667973"], ["updated_at", "2018-03-08 21:21:46.667973"], ["password_digest", "$2a$10$/Ed8NNQdLbr3BEc7hRa7O.nqiOxbrJ8b1s4B04GBszNYtZT6fnFLq"], ["activation_digest", "$2a$10$YZNg5pP1blpSJcw6a05k2OloTUobWIN9IHk4s2C/1xHxqT7VoqchS"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:46.593662"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-73@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jada O'Keefe"], ["email", "example-73@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:46.830290"], ["updated_at", "2018-03-08 21:21:46.830290"], ["password_digest", "$2a$10$Ml9M8K01AW9S/gt3J8EKl.Lo.p4c.0Hu5f0J6bgS6GaXVHG4UeZ0W"], ["activation_digest", "$2a$10$eLRdjWxO6fcyasGy/T2cFuIinT0qVMfJN3wL401pHIxZLQAbhup2i"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:46.746389"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-74@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Peggie Spencer"], ["email", "example-74@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:47.001465"], ["updated_at", "2018-03-08 21:21:47.001465"], ["password_digest", "$2a$10$mzQ1LZksKAqDTSwytIjXRuqDpSUdgpYNQE6DftvqK.jcTOvub7bG2"], ["activation_digest", "$2a$10$qYtZdEc1K1D8120/7R2BHuNIl29zGbCI/.vcTwL5fDj.uPlptptXW"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:46.916221"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-75@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Alvena Heidenreich Jr."], ["email", "example-75@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:47.177052"], ["updated_at", "2018-03-08 21:21:47.177052"], ["password_digest", "$2a$10$tiAx5NqoOzJkaICTon1la..OuR1mxomFVUb5dpFvpW6KUe4aULTOK"], ["activation_digest", "$2a$10$LXtGeJd7bCBE.I9qj2yeE.z8TUhBYoRfBcss9Of/5wTZWah4Ifs4i"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:47.087612"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-76@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jalen Lueilwitz"], ["email", "example-76@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:47.353952"], ["updated_at", "2018-03-08 21:21:47.353952"], ["password_digest", "$2a$10$R0FXHSBgdQtQ.F8eJRrVTuJPgZX91zUZE067Yo7fCykb6VXjBbK.K"], ["activation_digest", "$2a$10$69WABxvrZlQE/JZov7.aWu.mhr2aCJx4zgwdWSX/N6cKBmbfkcSSm"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:47.258997"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-77@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bernard Lakin Jr."], ["email", "example-77@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:47.518836"], ["updated_at", "2018-03-08 21:21:47.518836"], ["password_digest", "$2a$10$Nf3X9.lTVQ72ghQykmH.OOq2giaqK4yAorXP/Cr.buBBCwSgiJaiC"], ["activation_digest", "$2a$10$.wCYL5zUpoXxqUW6/3IHSeejusd7vn5U0cmrtDAJOfAEq0PuuN9p."], ["activated", "t"], ["activated_at", "2018-03-08 21:21:47.442577"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-78@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Willy Harber"], ["email", "example-78@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:47.681616"], ["updated_at", "2018-03-08 21:21:47.681616"], ["password_digest", "$2a$10$WCx3BH0J4yJXmehlKJsd1.Ax6QEeTsqWC82G9uEj3smtCtDfW/CZG"], ["activation_digest", "$2a$10$tf4fPedIHYP5F0SUZyZqQ.3ObwSDCNmhHgFPPFfO/h19nhLdz1c.."], ["activated", "t"], ["activated_at", "2018-03-08 21:21:47.593014"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-79@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jeanie Tremblay"], ["email", "example-79@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:47.857556"], ["updated_at", "2018-03-08 21:21:47.857556"], ["password_digest", "$2a$10$fCH34v5kj6Zgjalz5Vr/r.k6sauBERvk9TlMTCkSIUAom0CJshKUm"], ["activation_digest", "$2a$10$p0.bQijQnwsgSnaxGmlBH.8ChrQJ0da6AKwz3yLkQL98.XkLCWygi"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:47.775275"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-80@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Dulce Berge"], ["email", "example-80@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:48.021769"], ["updated_at", "2018-03-08 21:21:48.021769"], ["password_digest", "$2a$10$/ukA5cFbv6NdQK0itTkUSeIbuCypQAQbjHFegLf8C7q0qQETRE30a"], ["activation_digest", "$2a$10$499FSAmPOTzY02qOhO19dOKtnTeq3QzFFe.dTCuFA0HmG1qeJC2CK"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:47.934017"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-81@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mariah Kuvalis"], ["email", "example-81@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:48.192168"], ["updated_at", "2018-03-08 21:21:48.192168"], ["password_digest", "$2a$10$wGnJZOryuCwJTeRhL1I35OEMZspwlRw/8d9qDI5dayqy.XtXl7jy2"], ["activation_digest", "$2a$10$5EubRZjPSvYn2D9X1kGime7hQlZVf1vaQ/g6/dknFZj23UuIFoiVu"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:48.107154"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-82@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Sherwood Heaney"], ["email", "example-82@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:48.355059"], ["updated_at", "2018-03-08 21:21:48.355059"], ["password_digest", "$2a$10$cf4G3b/Z5Gb/tmrOZfGR3O1sf/x/1vJvaWX0d6h789Kb//HF7OUdS"], ["activation_digest", "$2a$10$4ELaQrZPZ.iPsjsPDNre3ONPOM8vPI3ghlfbOBcvIMbq13FGHZKL2"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:48.272362"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-83@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Crystal Mohr"], ["email", "example-83@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:48.526185"], ["updated_at", "2018-03-08 21:21:48.526185"], ["password_digest", "$2a$10$Jl9WPP1yyfh.YAicttaCa.XFZVPL8O9D6XXOS1b2yLTfWgWd7pkHG"], ["activation_digest", "$2a$10$fs9jRcuYW02UXe/bKRJCPOMGmqhrXpptEsqnLu3SLGQIbQuQHgS5C"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:48.449412"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-84@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Frankie Stracke I"], ["email", "example-84@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:48.682121"], ["updated_at", "2018-03-08 21:21:48.682121"], ["password_digest", "$2a$10$sIqMAtTCza94s0C1DyE4geaYXl7I829SFmhgScCh32DfkeXea6FUy"], ["activation_digest", "$2a$10$xe.tPc0BLxfYmh.yroEMjuS5nGMN/eCUBja1w2Rf9oKfGRM1dcRcy"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:48.600942"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-85@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lazaro Kemmer"], ["email", "example-85@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:48.848057"], ["updated_at", "2018-03-08 21:21:48.848057"], ["password_digest", "$2a$10$EeVWz1Sjw3nx0K02VsECCOPhaGgWByo/KY49Z7T3dIgptsJCfCYFy"], ["activation_digest", "$2a$10$ajpLxJquNn7vkKOn1c6BQuoSBV6Ze4QXCj20E7cqBQm3fTOXO7Zni"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:48.769553"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-86@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Kyle Gutkowski"], ["email", "example-86@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:49.008483"], ["updated_at", "2018-03-08 21:21:49.008483"], ["password_digest", "$2a$10$FaiVKCTX7Z74ROAQNFkM5eHZuHdMJWpNG2WzFydx1D6MlRb..1JHq"], ["activation_digest", "$2a$10$hNqSzkDpjZfKMvMFjryaLePsWpCNYJaqUw9vGHZaDK7R0MB07oN.S"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:48.930361"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-87@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Karley Hermann V"], ["email", "example-87@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:49.172973"], ["updated_at", "2018-03-08 21:21:49.172973"], ["password_digest", "$2a$10$KFNedmxwqn5eubJqsci3G.srMFXjjVjxwP4XtZ31qHOisdAWoIH3m"], ["activation_digest", "$2a$10$NSPKsyyEkurUZQCe7YCABuN1x57Ek90.zDHOvkxBXUO.S6TaQUvkW"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:49.084983"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-88@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bernadette Halvorson"], ["email", "example-88@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:49.338447"], ["updated_at", "2018-03-08 21:21:49.338447"], ["password_digest", "$2a$10$kSWAy4GOWzMnr9VuhHmb.eIVq0FtbRTPNuu/XHOvMna3ZjW3D.izu"], ["activation_digest", "$2a$10$YKVoBwOjQqBtATmW9oUCleFZYpRBLzcBXWW6NzFQY7e5hPfDXabwC"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:49.260204"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-89@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Eli Pollich"], ["email", "example-89@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:49.504113"], ["updated_at", "2018-03-08 21:21:49.504113"], ["password_digest", "$2a$10$Vb0Ht87j1BrD8EEn2NJTqOgPCP69bmS4cnQui.bofbLCYP02MgzQW"], ["activation_digest", "$2a$10$JnYI4DwIgY60.HXuFk6k8O/VKlvdIeDpJpmT2huNQaTyHgxzl.dv."], ["activated", "t"], ["activated_at", "2018-03-08 21:21:49.420186"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-90@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Macie Keebler V"], ["email", "example-90@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:49.666435"], ["updated_at", "2018-03-08 21:21:49.666435"], ["password_digest", "$2a$10$wArnKQGm84dHyKZin9IiWeGjwJ0qgQ3/nfryz2z64On2OYNDL5cvC"], ["activation_digest", "$2a$10$LrQYn151lkPJ02.DbTdkO.bRde5QmhSLv48Ug53YO7hE.LDBM1aue"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:49.582220"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-91@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Natasha Williamson"], ["email", "example-91@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:49.829536"], ["updated_at", "2018-03-08 21:21:49.829536"], ["password_digest", "$2a$10$B76JHzNMjpeJ3nEJPi/7hecrEVxM6zc8F7695gKxBR4p8o2/f04Ki"], ["activation_digest", "$2a$10$ogBjVLqeKMnAe8CG93S56upQ9ZJ3hjBmdswAM5b4RkjyR5uOe8zBa"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:49.753459"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-92@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Gilbert Fisher"], ["email", "example-92@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:50.017277"], ["updated_at", "2018-03-08 21:21:50.017277"], ["password_digest", "$2a$10$VyuZDjLL7h/vPXm8G1L07O.dzEMoYkJW2SvKuqIw8BfM6lk5Fd8B6"], ["activation_digest", "$2a$10$8PIi9uERBPvZjVIjSqGg/OJAnmF26yupQhOzbTm8qo.lsvG9/LpgG"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:49.933458"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-93@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Hilton Dickinson"], ["email", "example-93@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:50.172718"], ["updated_at", "2018-03-08 21:21:50.172718"], ["password_digest", "$2a$10$tC/nVs9ltjTLODgPK8HO0.Idbn.afXgGViwmcS2aEiQTWHk2hzn82"], ["activation_digest", "$2a$10$n5R4uc5vlEZ1oJJgCxtqh.IW/yXSFwPttEsj3smQ4.BL4cN0Geita"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:50.092206"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-94@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Glennie Heaney"], ["email", "example-94@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:50.349271"], ["updated_at", "2018-03-08 21:21:50.349271"], ["password_digest", "$2a$10$Cd9lmQ0g.4MiQO6kIF2yxOlrXBopIL.3Ryn/Db8BtmPaNuI0TIlY2"], ["activation_digest", "$2a$10$dd7P6XzxkS.hYw3J7BpuLeszKyFee2m2frA7RMQo.QylvVOJ2tjlC"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:50.258137"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-95@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Evelyn Cartwright"], ["email", "example-95@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:50.505929"], ["updated_at", "2018-03-08 21:21:50.505929"], ["password_digest", "$2a$10$Rl47o7Tv6X9FW4qo6p.RF.9uHsNSsu7PcBpTJOSTX01Uq2raM0q8m"], ["activation_digest", "$2a$10$lzSBPyxMtLq6.tMjvXwMNODUvb770IPRaMbfJ3HPYhJghvkyWlljC"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:50.428994"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-96@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Trystan Kessler"], ["email", "example-96@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:50.672388"], ["updated_at", "2018-03-08 21:21:50.672388"], ["password_digest", "$2a$10$piUm47OR/zTOe.y58SMih.N5QkhUE7MiOt.F9B/9JlsuTTpAd34S2"], ["activation_digest", "$2a$10$zXfKBJPqujJbEyFYLWleVeYxS6h0y/HVJpiU8T9ibZ9t0IUd1mLEG"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:50.580433"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-97@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bernita Volkman MD"], ["email", "example-97@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:50.838712"], ["updated_at", "2018-03-08 21:21:50.838712"], ["password_digest", "$2a$10$ygqCEuRiMVImROzk8LVowuUc5qb0nsPkHX49VP3gcYODmZdWArFCW"], ["activation_digest", "$2a$10$fh2/kt.IeZNqZFvwvJMUhealZF1JN9FinTB6y9aJJERNx/WXKbYk6"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:50.756286"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-98@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Lesly Bogisich"], ["email", "example-98@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:50.992764"], ["updated_at", "2018-03-08 21:21:50.992764"], ["password_digest", "$2a$10$JyX4fmvoij8SVE.4ba4Y5OA9CMWH8OSFI0ZyTKvcje.epiZvcIge2"], ["activation_digest", "$2a$10$GTXv/2XftYRDsTxXwDjwLORO0iBDHvsyzz8Vtl0ZxM6v4tQRg7fsu"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:50.918284"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "example-99@passivehousedetails.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest", "activated", "activated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Reta VonRueden Sr."], ["email", "example-99@passivehousedetails.org"], ["created_at", "2018-03-08 21:21:51.172011"], ["updated_at", "2018-03-08 21:21:51.172011"], ["password_digest", "$2a$10$HJzE0cYKRYrSt0BxpJt3VuOZrqHneU7qLFreQhmygiOgwWBL3MmhK"], ["activation_digest", "$2a$10$vsDDsxZA541J3cpFoydebudjQZr01VgodeQ7SZYVSt9388.8iJCse"], ["activated", "t"], ["activated_at", "2018-03-08 21:21:51.079067"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:22:01 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (275.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (5.8ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 380ms (Views: 369.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-03-08 13:22:03 -0800
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered users/_form.html.erb (526.3ms)
+  Rendered users/new.html.erb within layouts/application (529.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 608ms (Views: 578.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-03-08 13:22:13 -0800
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6UWKY2Bhdm9FKWWHI7hoC86fagp3FATdbx+PhrpoBeT5X+nFT6okLAhm+yRjOojcfRA5eN7zL19L5HhStdJ3+g==", "user"=>{"name"=>"botilko", "email"=>"botilko@yahoo.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "botilko@yahoo.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "password_digest", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "botilko"], ["email", "botilko@yahoo.com"], ["created_at", "2018-03-08 21:22:13.690745"], ["updated_at", "2018-03-08 21:22:13.690745"], ["password_digest", "$2a$10$UmPUdmFA9wEhz4oaqfrtfOtCua3qlR468Qxr/FTC10D8w7kvJY0BG"], ["activation_digest", "$2a$10$IhJy8iZlOYIBPYcRziN0nO5A01frDT/DNV7SOcnNLHb7..ppy7XC."]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering user_mailer/account_activation.html.erb within layouts/mailer
+  Rendered user_mailer/account_activation.html.erb within layouts/mailer (2.1ms)
+  Rendering user_mailer/account_activation.text.erb within layouts/mailer
+  Rendered user_mailer/account_activation.text.erb within layouts/mailer (0.7ms)
+UserMailer#account_activation: processed outbound mail in 393.6ms
+Sent mail to botilko@yahoo.com (23.7ms)
+Date: Thu, 08 Mar 2018 13:22:14 -0800
+From: noreply@example.com
+To: botilko@yahoo.com
+Message-ID: <5aa1a9869058b_95f43fd252e7b5447115b@Iliyans-MacBook-Air.local.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5aa1a9868ca8b_95f43fd252e7b544710a4";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5aa1a9868ca8b_95f43fd252e7b544710a4
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi botilko,
+
+Welcome to the PassiveHouseElements! Click on the link below to activate your account:
+
+https://localhost:3000/account_activations/dFhCyEMTmUqSPcbIbiolZA/edit?email=botilko%40yahoo.com
+
+
+----==_mimepart_5aa1a9868ca8b_95f43fd252e7b544710a4
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>PassiveHouseElements</h1>
+
+<p>Hi botilko,</p>
+
+<p>
+Welcome to PassiveHouseElements! Click on the link below to activate your account:
+</p>
+
+<a href="https://localhost:3000/account_activations/dFhCyEMTmUqSPcbIbiolZA/edit?email=botilko%40yahoo.com">Activate</a>
+  </body>
+</html>
+
+----==_mimepart_5aa1a9868ca8b_95f43fd252e7b544710a4--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 1004ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:22:14 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 41ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2018-03-08 13:23:36 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered users/_form.html.erb (458.1ms)
+  Rendered users/new.html.erb within layouts/application (460.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 739ms (Views: 712.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:25:07 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 54ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-08 13:25:12 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UmkAQF/HqZQCJSylawIvOe8O1v3NSSakZILCA9gQgmZ8MWd4p94C0VtlGGfSlHoARL22eptsuFqiwy32jpt2gQ==", "session"=>{"email"=>"botilko@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "botilko@yahoo.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 89ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:25:12 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 76ms (Views: 74.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["email", "botilko@yahoo.com"], ["id", 101], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-03-08 21:27:13.455013"], ["activated", "t"], ["activated_at", "2018-03-08 21:22:13"], ["id", 101]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["email", "botilko@yahoo.com"], ["id", 101], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:28:01 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (492.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (5.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 798ms (Views: 785.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:28:04 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 52ms (Views: 49.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:28:06 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 75ms (Views: 71.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:28:08 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 72ms (Views: 67.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-03-08 13:28:15 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/DQ/VUxOiFkRkEYamIQqrureegMG8LAuh+7+HZZoJO3SbFhttFcjHEjQctghEn+XQW0ahFDVLtBBrxHowOPQCg==", "session"=>{"email"=>"botilko@yahoo.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "botilko@yahoo.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/101
+Completed 302 Found in 111ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/101" for 127.0.0.1 at 2018-03-08 13:28:15 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"101"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 71ms (Views: 64.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/101/edit" for 127.0.0.1 at 2018-03-08 13:28:21 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"101"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered users/_form.html.erb (9.5ms)
+  Rendered users/edit.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 81ms (Views: 74.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/101" for 127.0.0.1 at 2018-03-08 13:28:23 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"101"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 68ms (Views: 61.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-08 13:28:33 -0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."activated" = ?[0m  [["activated", "t"]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."activated" = ? LIMIT ? OFFSET ?[0m  [["activated", "t"], ["LIMIT", 30], ["OFFSET", 0]]
+  Rendered users/index.html.erb within layouts/application (13.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 63ms (Views: 54.3ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) AND ("users"."id" != ?) LIMIT ?[0m  [["email", "botilko@yahoo.com"], ["id", 101], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-03-08 21:29:45.601133"], ["admin", "t"], ["id", 101]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users" for 127.0.0.1 at 2018-03-08 13:30:01 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."activated" = ?[0m  [["activated", "t"]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."activated" = ? LIMIT ? OFFSET ?[0m  [["activated", "t"], ["LIMIT", 30], ["OFFSET", 0]]
+  Rendered users/index.html.erb within layouts/application (487.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 797ms (Views: 756.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-03-08 13:44:53 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 319ms (Views: 285.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-03-08 13:53:30 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:53:38 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (392.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (30.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 626ms (Views: 623.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/101" for 127.0.0.1 at 2018-03-08 13:53:45 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"101"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 138ms (Views: 99.6ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-03-08 13:53:49 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TVEnHIyj8H8uUuxxr4KkT7ZYlkP7H1/YELqtMjYBjApsfFTCQ19dQx97fzQt6V3kdQwFfirBq52/CmKHF6nzAg=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-08 13:53:49 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 57ms (Views: 55.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:53:50 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (528.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 576ms (Views: 571.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2018-03-08 13:53:53 -0800
+Processing by PasswordResetsController#new as HTML
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 55ms (Views: 52.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:54:27 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (535.2ms)
+Completed 500 Internal Server Error in 542ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_password_resets_path' for #<#<Class:0x007f967f2015d0>:0x007f967f1e1898>
+Did you mean?  new_password_reset_path
+               new_password_reset_url
+               edit_password_reset_path):
+     9:       <%= f.email_field :email, class: 'form-control' %>
+    10: 
+    11:       <%= f.label :password %>
+    12:       <%= link_to "(forgot password)", new_password_resets_path %>
+    13:       <%= f.password_field :password, class: 'form-control' %>
+    14: 
+    15:       <%= f.label :remember_me, class: "checkbox inline" do %>
+  
+app/views/sessions/new.html.erb:12:in `block in _app_views_sessions_new_html_erb___1223076563501452440_70142177350300'
+app/views/sessions/new.html.erb:6:in `_app_views_sessions_new_html_erb___1223076563501452440_70142177350300'
+Started GET "/login" for 127.0.0.1 at 2018-03-08 13:54:46 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (6.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 54ms (Views: 51.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddResetToUsers (20180308215812)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_digest" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_sent_at" datetime[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180308215812"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/password_resets/new" for 127.0.0.1 at 2018-03-08 14:01:14 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PasswordResetsController#new as HTML
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (496.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 829ms (Views: 783.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2018-03-08 14:14:41 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PasswordResetsController#new as HTML
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (460.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 739ms (Views: 727.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2018-03-08 14:21:18 -0800
+Processing by PasswordResetsController#new as HTML
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 88ms (Views: 86.4ms)
+
+

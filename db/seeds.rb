@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create!(name:  "Example User",
-             email: "example@passivehousedetails.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
+# User.create!(name:  "Example User",
+#              email: "example@passivehousedetails.org",
+#              password:              "foobar",
+#              password_confirmation: "foobar",
              
-             activated: true,
-             activated_at: Time.zone.now)
+#              activated: true,
+#              activated_at: Time.zone.now)
 
 99.times do |n|
   name  = Faker::Name.name
