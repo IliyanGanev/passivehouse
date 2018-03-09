@@ -1,0 +1,16 @@
+<%= form_for(@micropost) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Comment..." %>
+  </div>
+
+	<div class="field">
+		<%= f.select(:tag) do %>
+		  <% [['dwg', 'dwg'], ['pdf', 'pdf']].each do |c| -%>
+		    <%= content_tag(:option, c.first, value: c.last) %>
+		  <% end %>
+		<% end %> 
+	</div>
+
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
