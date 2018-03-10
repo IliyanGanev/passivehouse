@@ -1,7 +1,8 @@
 <% provide(:title, "Home") %>
 
 <% if logged_in? %>
-  <div class="row">
+
+<!--  <div class="row">
     <aside class="col-md-4">
       <section class="user_info">
         <%= render 'shared/user_info' %>
@@ -14,22 +15,89 @@
       	<h3>Micropost Feed</h3>
       	<%= render 'shared/feed' %>
     	</div>
+  </div> --> 
+
+<div class="row">
+    		<aside class="col-md-4">
+ 			<section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section> 
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+   
+
+
+   <div class="col-md-8">
+  
+
+
+					<ul class="users">
+					 
+					      
+					      <% @microposts.each do |micropost| %>
+										<li id="micropost-<%= micropost.id %>">
+										  <span class="user">Posted by: <%= link_to micropost.user.name, micropost.user %></span><br>
+										  <span class="tag"><%= micropost.tag %></span><br>
+										  <span class="content">
+										  	<%= image_tag micropost.picture.url if micropost.picture? %><br/>
+										  	<%= link_to "Download Attachment", micropost.attachment_url if micropost.attachment? %>	<br/>	
+										  	<%= micropost.content %><br/>
+										  </span>
+										  <span class="timestamp">
+										    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+										
+										  <% if current_user?(micropost.user) %>
+										      <%= link_to "delete", micropost, method: :delete,
+										                                       data: { confirm: "You sure?" } %>
+										   <% end %>
+										  </span>
+										</li>
+					      <%end%>
+					
+					    
+					</ul>
+
+			<%= will_paginate @microposts %>
+
+
+
+
+
+
+
+
+    </div>
   </div>
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
 <% else %>
 
 	<div class="center jumbotron">
-	    <h1>Home</h1>
+	    
 	    <p>
-	      This is the home page for the
-	      <a href="http://www.iliyanganev.com/">Passivehousedetails</a>
-	      sample application.
+	      Up/Download and preview Autocad, Revit, and Vectorworks passive house details.
 	    </p>
 	
 	    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 	<!--     <a href="#" class="btn btn-lg btn-primary">Sign up now!</a> -->
 	</div>
 	
-	<%= link_to image_tag("logo.png", alt: "Rails logo"),
-	            'http://rubyonrails.org/' %>
+<!-- 	<%= link_to image_tag("logo.png", alt: "Logo"),
+	            'http://iliyanganev.com/' %> -->
 
 <% end %>

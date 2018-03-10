@@ -28,8 +28,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
+  font-size: 2em;
+
   margin-bottom: 30px;
   text-align: center;
 }
@@ -51,11 +51,13 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.2em;
   color: #fff;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+  vertical-align:center;
+  height:10px;
+  padding-top: 6px;
+
+  
+  
 }
 
 #logo:hover {
@@ -200,4 +202,53 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.navbar{
+  background-color: #00b19d;
+  border-bottom:none;
+
+}
+#menu{
+  font-color:white;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: grey;
+}
+
+
+.footer {
+    position: fixed;
+    height: 30px;
+    
+    bottom: 0px;
+    left: 20px;
+    right: 20px;
+   
+}
+
+.btn-primary {
+  color: white;
+  border-color:#00b19d;
+  background-color: #00b19d;
+  border:1px solid #00b19d;
+  border-radius:2px;
+}
+.btn-primary:hover {
+  color: #00b19d; 
+  border-color: #00b19d;
+  background-color: white;
+  border-radius:2px;
+  cursor: pointer;
+}
+.container .jumbotron, .container-fluid .jumbotron{
+  color:#00b19d;
+  margin-top:15em;
+  background-color:white;
+}
+a{
+  color: #00b19d;
 }

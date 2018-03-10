@@ -1,18 +1,19 @@
 </br></br></br>
+<div style="border:1px solid #00b19d; padding: 1em;">
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <span class="attachment">
+  <span class="attachment" style="padding:1em;">
   	<p>Upload AutoCad, Revit or Vectorworks file.</p>
   	<%= f.file_field :attachment, accept: '.dgn, .dwf, .dwg, .dst, .dwt, .dxb, .dws, .dxf, .ifc, .sat, .skp, .rvt, .adsk, .cas, .rfa, .rft, .rte, .rvg, .rvt, .slog, .smxx, .dwfx, .gbxm, .ies' %>
   </span>
 
-  <span class="picture">
+  <span class="picture" style="padding:1em;">
   	<p>Upload preview (jpg jpeg gif png)</p>
   	<%= f.file_field :picture, accept: 'image/jpeg, image/jpg, image/gif,image/png' %>
   </span>
   
-  <div class="field">
+  <div class="field" style="padding:1em;">
     <%= f.text_area :content, placeholder: "Description..." %>
   </div>
 
@@ -27,10 +28,10 @@
 
 
 
-  <%= f.submit "Post", class: "btn btn-primary" %>
+ <%= f.submit "Post", class: "btn btn-primary form" %>
 <% end %>
 
-
+</div>
 
 
 
