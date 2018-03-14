@@ -1,3 +1,4 @@
+
 <% provide(:title, "Home") %>
 
 <% if logged_in? %>
@@ -41,7 +42,22 @@
 										  <span class="user">Posted by: <%= link_to micropost.user.name, micropost.user %></span><br>
 										  <span class="tag"><%= micropost.tag %></span><br>
 										  <span class="content">
-										  	<%= image_tag micropost.picture.url if micropost.picture? %><br/>
+										
+										  	
+										  	<%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block', console.log(this.id+1)", :style => "cursor:zoom-in" if micropost.picture? %><br/> 
+
+										  	  <div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
+    												<span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+   												 		<div class="w3-modal-content w3-animate-zoom">
+     											 		
+     											 			<%= image_tag micropost.picture.url, :style => "width:100%" if micropost.picture? %>
+    													</div>
+  								
+
+
+
+										  	
+										  </div>
 										  	<%= link_to "Download Attachment", micropost.attachment_url if micropost.attachment? %>	<br/>	
 										  	<%= micropost.content %><br/>
 										  </span>
@@ -62,27 +78,8 @@
 			<%= will_paginate @microposts %>
 
 
-
-
-
-
-
-
     </div>
   </div>
-
-
-
-
-
-
-
- 
-
-
-
-
-
 
 
 <% else %>
@@ -101,3 +98,9 @@
 	            'http://iliyanganev.com/' %> -->
 
 <% end %>
+
+<script type="text/javascript">
+	function open() {
+		alert('asdf')
+	}
+</script>
