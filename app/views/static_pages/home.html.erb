@@ -16,86 +16,87 @@
       	<h3>Micropost Feed</h3>
       	<%= render 'shared/feed' %>
     	</div>
-  </div> --> 
+    </div> --> 
 
-<div class="row">
-    		<aside class="col-md-4">
- 			<section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section> 
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-   
-
-
-   <div class="col-md-8">
-  
-
-
-					<ul class="users">
-					 
-					      
-					      <% @microposts.each do |micropost| %>
-										<li id="micropost-<%= micropost.id %>">
-										  <span class="user">Posted by: <%= link_to micropost.user.name, micropost.user %></span><br>
-										  <span class="tag"><%= micropost.tag %></span><br>
-										  <span class="content">
-										
-										  	
-										  	<%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block', console.log(this.id+1)", :style => "cursor:zoom-in" if micropost.picture? %><br/> 
-
-										  	  <div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
-    												<span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-   												 		<div class="w3-modal-content w3-animate-zoom">
-     											 		
-     											 			<%= image_tag micropost.picture.url, :style => "width:100%" if micropost.picture? %>
-    													</div>
-  								
+    <div class="row">
+    	<aside class="col-md-4">
+    		<section class="user_info">
+    			<%= render 'shared/user_info' %>
+    		</section> 
+    		<section class="micropost_form">
+    			<%= render 'shared/micropost_form' %>
+    		</section>
+    	</aside>
 
 
 
-										  	
-										  </div>
-										  	<%= link_to "Download Attachment", micropost.attachment_url if micropost.attachment? %>	<br/>	
-										  	<%= micropost.content %><br/>
-										  </span>
-										  <span class="timestamp">
-										    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-										
-										  <% if current_user?(micropost.user) %>
-										      <%= link_to "delete", micropost, method: :delete,
-										                                       data: { confirm: "You sure?" } %>
-										   <% end %>
-										  </span>
-										</li>
-					      <%end%>
-					
-					    
-					</ul>
-
-			<%= will_paginate @microposts %>
+    	<div class="col-md-8">
 
 
+
+    		<ul class="users">
+
+
+    			<% @microposts.each do |micropost| %>
+    			<li id="micropost-<%= micropost.id %>">
+    				<span class="user">Posted by: <%= link_to micropost.user.name, micropost.user %></span><br>
+    				<span class="tag"><mark id="mark"><%= micropost.tag %></mark></span><br>
+    				<span class="content">
+
+
+    					<span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block', console.log(this.id+1)", :style => "cursor:zoom-in;display: inline-block;position: relative;" if micropost.picture? %></span>
+
+    					<div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
+    						<span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+    						<div class="w3-modal-content w3-animate-zoom">
+
+    							<%= image_tag micropost.picture.url, :style => "width:100%" if micropost.picture? %>
+    						</div>
+    					</div>
+
+    					<div style="border:1px solid green; display:inline-block;position:relative;margin-left: 15px;height: 200px;">
+    						<span><%= link_to "Download Attachment", micropost.attachment_url, :class => "download-button btn btn-primary form", :style => "display:block; position: relative; margin:5px;" if micropost.attachment? %></span><br>
+    						<% if current_user?(micropost.user) %>
+    						<%= link_to "Delete Post", micropost, :class => "download-button btn btn-primary form", method: :delete, :style => "margin-left:5px;",
+    						data: { confirm: "You sure?" } %>
+    						<% end %>
+    					</div>
+
+    					<div style="border:1px solid grey; background-color: lightgrey; position:relative;display:block; margin-top: 5px;">
+    						<p><%= micropost.content %></p>
+    						</span>
+    							<span class="timestamp">
+    								Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+
+    							</span>
+    					</div>
+    			</li>
+    			<%end%>
+
+
+    		</ul>
+
+    		<%= will_paginate @microposts %>
+
+
+    	</div>
     </div>
-  </div>
 
 
-<% else %>
+    <% else %>
 
-	<div class="center jumbotron">
-	    
-	    <p>
-	      Up/Download and preview Autocad, Revit, and Vectorworks passive house details.
-	    </p>
-	
-	    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-	<!--     <a href="#" class="btn btn-lg btn-primary">Sign up now!</a> -->
-	</div>
-	
+    <div class="center jumbotron">
+
+    	<p>
+    		Up/Download and preview Autocad, Revit, and Vectorworks passive house details.
+    	</p>
+
+    	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    	<!--     <a href="#" class="btn btn-lg btn-primary">Sign up now!</a> -->
+    </div>
+
 <!-- 	<%= link_to image_tag("logo.png", alt: "Logo"),
-	            'http://iliyanganev.com/' %> -->
+'http://iliyanganev.com/' %> -->
 
 <% end %>
 
