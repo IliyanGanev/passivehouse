@@ -1,5 +1,6 @@
 <div style="border: 1px solid #00b19d; padding:1em;">
-<h1 style="color: #00b19d;"><%= current_user.name %></h1>
-<span><%= link_to "view my profile", current_user %></span>
+
+<h1 style="color: #00b19d;"><i class="glyphicon glyphicon-user"></i><%= current_user.name %></h1>
+<span><%= link_to "view my profile", current_user, :class => "download-button btn btn-primary form" %></span>
 <span><%= pluralize(current_user.microposts.count, "post") %></span>
 </div>

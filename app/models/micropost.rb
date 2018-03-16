@@ -10,6 +10,11 @@ class Micropost < ApplicationRecord
   validate :picture_size
   validate :attachment_size
 
+
+  def self.search(search)
+  where("content LIKE ?", "%#{search}%") 
+end
+
   private
 
   # Custom validator for the size of an uploaded picture.

@@ -20,4 +20,21 @@ class StaticPagesController < ApplicationController
   def contact
   end
   
+  def autocad
+    @micropost  = current_user.microposts.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
+    @microposts = Micropost.where(tag: 'AutoCad').paginate(page: params[:page])
+  end
+  
+  def revit
+    @micropost  = current_user.microposts.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
+    @microposts = Micropost.where(tag: 'Revit').paginate(page: params[:page])
+  end
+
+  def vectorworks
+    @micropost  = current_user.microposts.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
+    @microposts = Micropost.where(tag: 'Vectorworks').paginate(page: params[:page])
+  end
 end

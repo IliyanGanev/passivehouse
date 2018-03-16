@@ -267,3 +267,20 @@ download-button {
   margin-top: 1em;
   width:400px;
 }
+.user-button{
+    color: #00b19d; 
+  border-color: #00b19d;
+  background-color: white;
+  border-radius:2px;
+  cursor: pointer;
+}
+.user-button:hover {
+  color: white;
+  border-color:#00b19d;
+  background-color: #00b19d;
+  border:1px solid #00b19d;
+  border-radius:2px;
+}
+
+
+
