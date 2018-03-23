@@ -1,13 +1,28 @@
 <% provide(:title, "Forgot password") %>
+
+
+
+<div style="background: rgba(0, 0, 0, 0.0);
+  position: fixed;
+   top: 50%;
+   left: 50%;
+   margin-top: 15em;
+   transform: translate(-50%, -50%);
+    top: 10em;
+    width: 60%;
+    z-index: 10000;">
+
+
 <h1>Forgot password</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', style: ' background: rgba(144, 144, 144, 0.25);border:none;' %>
 
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
+</div>
 </div>

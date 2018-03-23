@@ -12,6 +12,9 @@ class StaticPagesController < ApplicationController
   end
 
   def help
+    p '#' * 40
+    p request.user_agent
+    p request.headers['User-Agent']
   end
 
   def about 
