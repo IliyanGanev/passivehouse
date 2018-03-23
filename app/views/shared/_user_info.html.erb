@@ -3,6 +3,6 @@
 <h1 style="color: #00b19d;"><i class="glyphicon glyphicon-user"></i><%= current_user.name %></h1>
 <span><%= link_to "view my profile", current_user, :class => "download-button btn btn-primary form" %></span>
 
-<span class="w3-badge w3-small w3-green"><%= current_user.microposts.count %></span>
+<span class="w3-badge w3-small w3-grey"><%= current_user.microposts.count %></span>
 <span><%= "post".pluralize(current_user.microposts.count) %></span>
 </div>
