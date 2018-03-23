@@ -4,7 +4,7 @@
 /* universal */
 
 body {
-  padding-top: 60px;
+ 
 }
 
 section {
@@ -231,17 +231,18 @@ span.picture {
 }
 
 .btn-primary {
-  color: white;
+  color: #00b19d;
   border-color:#00b19d;
-  background-color: #00b19d;
+  background-color: black;
   border:1px solid #00b19d;
-  border-radius:2px;
+  border-radius:1px;
+  cursor: pointer;
 }
 .btn-primary:hover {
-  color: #00b19d; 
+  color: black; 
   border-color: #00b19d;
-  background-color: white;
-  border-radius:2px;
+  background-color: #00b19d;
+  border-radius:1px;
   cursor: pointer;
 }
 .container .jumbotron, .container-fluid .jumbotron{
@@ -281,6 +282,21 @@ download-button {
   border:1px solid #00b19d;
   border-radius:2px;
 }
+
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 5px 15px;
+
+    }
+
+.nav > li > a:hover {
+background: black;
+color:#00b19d;
+ border-bottom:1px solid #00b19d;
+
+    }
 
 
 

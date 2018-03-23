@@ -8,11 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', 'https://www.w3schools.com/w3css/4/w3.css'%>
     <%= stylesheet_link_tag 'application', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'%>
-    
  
     <%= render 'layouts/shim' %>
   </head>
   <body>
+    <%= render 'layouts/three' %>
     <%= render 'layouts/header' %>
     <div class="container">
       <% flash.each do |message_type, message| %>

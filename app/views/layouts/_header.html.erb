@@ -1,10 +1,18 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<!-- <header class="navbar navbar-fixed-top navbar-inverse"> -->
+  <header  style="background: rgba(0, 0, 0, 0.3);
+    height: 5em;
+    left: 0;
+    line-height: 3em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;">
   <div class="container">
    <!--  <%= link_to "passiveHousedetails", root_path, id: "logo" %> -->
-    <%= link_to image_tag("logo.png"),root_path, id: "logo" %>
+    <%= link_to image_tag("logo2.png"),root_path, id: "logo", style: "margin-top:6px;" %>
     <nav>
       
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" style="margin-top: 25px;">
         <li id='menu'><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
         <% if logged_in? %>
