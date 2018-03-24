@@ -1,17 +1,17 @@
 <head>
 	<style>
-			canvas { width: 100%; height:100% }
-		</style>
-	</head>
-	<body style="height: 100vh; position:fixed;
-  z-index:0;">
-		<script src="js/three.js"></script>
-		<script>
+	canvas { width: 100%; height:100% }
+</style>
+</head>
+<body style="height: 100vh; position:fixed;
+z-index:0;">
+<script src="js/three.js"></script>
+<script>
 
-function startAnimation(parent, width, height) {
+	function startAnimation(parent, width, height) {
 
-			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 0.1, 1000 );
+		var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera( 50, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
 			//field of view, aspect ratio, near and far clipping plane
 
@@ -19,8 +19,8 @@ function startAnimation(parent, width, height) {
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
-		
-				
+
+
 
 // var curve = new THREE.CatmullRomCurve3( [
 // 	new THREE.Vector3( -45, 0, 0 ),
@@ -110,12 +110,12 @@ var curve = new THREE.CatmullRomCurve3( [
 	new THREE.Vector3( 25, 0.3, 0 ),
 	new THREE.Vector3( 45, -0.3, 0 ),
 	new THREE.Vector3( 55, 0, 0 )
-], false, 'centripetal',  1 );
+	], false, 'centripetal',  1 );
 
 var points = curve.getPoints( 50 );
 var geometry = new THREE.BufferGeometry().setFromPoints( points );
 
-var material = new THREE.LineBasicMaterial( { color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.5 } );
+var material = new THREE.LineBasicMaterial( { color: 0x00b19d, transparent: true, opacity: 0.5 } );
 
 // Create the final object to add to the scene
 var curveObject4 = new THREE.Line( geometry, material );
@@ -131,12 +131,12 @@ var curve = new THREE.CatmullRomCurve3( [
 	new THREE.Vector3( 25, -0.3, 0 ),
 	new THREE.Vector3( 45, 0.3, 0 ),
 	new THREE.Vector3( 55, 0, 0 )
-], false, 'centripetal',  1 );
+	], false, 'centripetal',  1 );
 
 var points = curve.getPoints( 50 );
 var geometry = new THREE.BufferGeometry().setFromPoints( points );
 
-var material = new THREE.LineBasicMaterial( { color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.5 } );
+var material = new THREE.LineBasicMaterial( { color: 0x00b19d, transparent: true, opacity: 0.5 } );
 
 // Create the final object to add to the scene
 var curveObject5 = new THREE.Line( geometry, material );
@@ -153,12 +153,12 @@ var curve = new THREE.CatmullRomCurve3( [
 	new THREE.Vector3( 25, 0.3, 0 ),
 	new THREE.Vector3( 45, 0.3, 0 ),
 	new THREE.Vector3( 55, -0.3, 0 )
-], false, 'centripetal',  1 );
+	], false, 'centripetal',  1 );
 
 var points = curve.getPoints( 50 );
 var geometry = new THREE.BufferGeometry().setFromPoints( points );
 
-var material = new THREE.LineBasicMaterial( { color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.5 } );
+var material = new THREE.LineBasicMaterial( { color: 0x00b19d,transparent: true, opacity: 0.5 } );
 
 // Create the final object to add to the scene
 var curveObject6 = new THREE.Line( geometry, material );
@@ -174,12 +174,12 @@ var curve = new THREE.CatmullRomCurve3( [
 	new THREE.Vector3( 25, -0.3, 0 ),
 	new THREE.Vector3( 45, -0.3, 0 ),
 	new THREE.Vector3( 55, 0.3, 0 )
-], false, 'centripetal',  1 );
+	], false, 'centripetal',  1 );
 
 var points = curve.getPoints( 50 );
 var geometry = new THREE.BufferGeometry().setFromPoints( points );
 
-var material = new THREE.LineBasicMaterial( { color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.5 } );
+var material = new THREE.LineBasicMaterial( { color: 0x00b19d, transparent: true, opacity: 0.5 } );
 
 // Create the final object to add to the scene
 var curveObject7 = new THREE.Line( geometry, material );
@@ -195,12 +195,12 @@ var curve = new THREE.CatmullRomCurve3( [
 	new THREE.Vector3( 15, -0.3, 0 ),
 	new THREE.Vector3( 35, -0.3, 0 ),
 	new THREE.Vector3( 55, 0.3, 0 )
-], false, 'centripetal',  1 );
+	], false, 'centripetal',  1 );
 
 var points = curve.getPoints( 50 );
 var geometry = new THREE.BufferGeometry().setFromPoints( points );
 
-var material = new THREE.LineBasicMaterial( { color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.5 } );
+var material = new THREE.LineBasicMaterial( { color: 0x00b19d, transparent: true, opacity: 0.5 } );
 
 // Create the final object to add to the scene
 var curveObject8 = new THREE.Line( geometry, material );
@@ -218,12 +218,12 @@ var curve = new THREE.CatmullRomCurve3( [
 	new THREE.Vector3( 15, 0.3, 0 ),
 	new THREE.Vector3( 35, 0.3, 0 ),
 	new THREE.Vector3( 55, -0.3, 0 )
-], false, 'centripetal',  1 );
+	], false, 'centripetal',  1 );
 
 var points = curve.getPoints( 50 );
 var geometry = new THREE.BufferGeometry().setFromPoints( points );
 
-var material = new THREE.LineBasicMaterial( { color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.5 } );
+var material = new THREE.LineBasicMaterial( { color: 0x00b19d, transparent: true, opacity: 0.5 } );
 
 // Create the final object to add to the scene
 var curveObject9 = new THREE.Line( geometry, material );
@@ -243,12 +243,12 @@ var curve = new THREE.CatmullRomCurve3( [
 	new THREE.Vector3( 35, 0.3, 0 ),
 	new THREE.Vector3( 45, -0.3, 0 ),
 	new THREE.Vector3( 55, 0.3, 0 ),
-], false, 'centripetal',  1 );
+	], false, 'centripetal',  1 );
 
 var points = curve.getPoints( 50 );
 var geometry = new THREE.BufferGeometry().setFromPoints( points );
 
-var material = new THREE.LineBasicMaterial( { color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.5 } );
+var material = new THREE.LineBasicMaterial( { color: 0x00b19d, transparent: true, opacity: 0.5 } );
 
 // Create the final object to add to the scene
 var curveObject10 = new THREE.Line( geometry, material );
@@ -269,12 +269,12 @@ var curve = new THREE.CatmullRomCurve3( [
 	new THREE.Vector3( 35, -0.3, 0 ),
 	new THREE.Vector3( 45, 0.3, 0 ),
 	new THREE.Vector3( 55, -0.3, 0 ),
-], false, 'centripetal',  1 );
+	], false, 'centripetal',  1 );
 
 var points = curve.getPoints( 50 );
 var geometry = new THREE.BufferGeometry().setFromPoints( points );
 
-var material = new THREE.LineBasicMaterial( { color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.5 } );
+var material = new THREE.LineBasicMaterial( { color: 0x00b19d, transparent: true, opacity: 0.5 } );
 
 // Create the final object to add to the scene
 var curveObject11 = new THREE.Line( geometry, material );
@@ -284,33 +284,33 @@ scene.add( curveObject11);
 
 
 var geometry = new THREE.BoxGeometry( 5, 5, 5,3,3,3 );
-			var material = new THREE.MeshBasicMaterial( { wireframe: true, color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.1 } );
-			var cube = new THREE.Mesh( geometry, material ); 
-			scene.add( cube );
+var material = new THREE.MeshBasicMaterial( { wireframe: true, color: 0x00b19d, transparent: true, opacity: 0.1 } );
+var cube = new THREE.Mesh( geometry, material ); 
+scene.add( cube );
 
 cube.position.z = -60;
 cube.position.y = -10;
 cube.position.x = +60;
 
-			camera.position.z = 53;
-			camera.position.y = -20.6;
+camera.position.z = 53;
+camera.position.y = -20.6;
 
 
 
 
-			var geometry = new THREE.BoxGeometry( 5, 5, 5,3,3,3 );
-			var material = new THREE.MeshBasicMaterial( { wireframe: true, color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.1 } );
-			var cube1 = new THREE.Mesh( geometry, material ); 
-			scene.add( cube1 );
+var geometry = new THREE.BoxGeometry( 5, 5, 5,3,3,3 );
+var material = new THREE.MeshBasicMaterial( { wireframe: true, color: 0x00b19d, transparent: true, opacity: 0.1 } );
+var cube1 = new THREE.Mesh( geometry, material ); 
+scene.add( cube1 );
 
 cube1.position.z = -60;
 cube1.position.y = -10;
 cube1.position.x = +60;
 
-			var geometry = new THREE.BoxGeometry( 5, 5, 5,3,3,3 );
-			var material = new THREE.MeshBasicMaterial( { wireframe: true, color: 0x00b19d, shading: THREE.SmoothShading, transparent: true, opacity: 0.1 } );
-			var cube2 = new THREE.Mesh( geometry, material ); 
-			scene.add( cube2 );
+var geometry = new THREE.BoxGeometry( 5, 5, 5,3,3,3 );
+var material = new THREE.MeshBasicMaterial( { wireframe: true, color: 0x00b19d, transparent: true, opacity: 0.1 } );
+var cube2 = new THREE.Mesh( geometry, material ); 
+scene.add( cube2 );
 
 cube2.position.z = -60;
 cube2.position.y = -10;
@@ -323,9 +323,9 @@ cube2.position.x = +60;
 
 
 
-			var render = function () {
-				requestAnimationFrame( render );
-			
+var render = function () {
+	requestAnimationFrame( render );
+
 				// curveObject.rotation.x += 0.02;
 				// curveObject1.rotation.x -= 0.02;
 				// curveObject2.rotation.x -= 0.02;
@@ -364,10 +364,12 @@ cube2.position.x = +60;
 
 			render();
 }
-			startAnimation(
-				document.getElementById("home"),
-				window.innerWidth,
-				window.innerHeight);
+
+
+		startAnimation(
+			document.getElementById("home"),
+			window.innerWidth,
+			window.innerHeight);
 
 		</script>
 

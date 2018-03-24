@@ -24,7 +24,6 @@ $(document).ready(function() {
 			window.clearTimeout(window.resizeAnimationTimeout);
 		}
 		window.resizeAnimationTimeout = window.setTimeout(function () {
-			console.log('asdfasdfsadfsfsddfsdfdsf')
 			var w = $(window);
 			startAnimation(
 				document.getElementById("home"),
