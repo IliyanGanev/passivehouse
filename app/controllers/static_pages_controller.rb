@@ -21,7 +21,12 @@ class StaticPagesController < ApplicationController
   end
 
   def demo 
-
+    user = User.find_by(id: 101)
+    current_user = user
+    @micropost  = user.microposts.build
+    @microposts = Micropost.all.paginate(page: params[:page])
+    p @microposts
+    p '#' * 100
   end
 
   def contact

@@ -9,16 +9,16 @@
     		<section class="user_info">
     		
 
+
+
 <div style="border: 1px solid #00b19d; padding:1em;">
 
-<h1 style="color: #00b19d;"><i class="glyphicon glyphicon-user"></i><%= @user.name %></h1>
-<span><%= link_to "view my profile", @user, :class => "download-button btn btn-primary form profilebutton" %></span>
+<h1 style="color: #00b19d;"><i class="glyphicon glyphicon-user"></i><%= 'John Doe' %></h1>
+<span><%= link_to "view my profile", :class => "download-button btn btn-primary form profilebutton" %></span>
 
-<span class="w3-badge w3-small w3-grey"><%= @user.microposts.count %></span>
-<span><%= "post".pluralize(user.microposts.count) %></span>
+<span class="w3-badge w3-small w3-grey"><%= 12 %></span>
+<span><%= "posts" %></span>
 </div>
-
-
 
     		</section> 
     		<section class="micropost_form">
@@ -29,14 +29,15 @@
 
 
     	<div class="col-md-8">
+        <p style="margin-left: 40px;color:#00b19d;font-size: 20px;color:#32a0d1;">Sign up to enable functionality!</p>
        <span style="margin-left: 40px;color:#00b19d;"> Filter:
-         <%= link_to "All", root_path, :class => "user-button btn btn-primary", :style => "background:#00b19d;color:white;" %>
-         <%= link_to "Autocad", autocad_path, :class => "user-button btn btn-primary"%>
-         <%= link_to "Revit", revit_path, :class => "user-button btn btn-primary"%>
-         <%= link_to "Vectorworks", vectorworks_path, :class => "user-button btn btn-primary"%>
+         <%= link_to "All", '', :class => "user-button btn btn-primary" %>
+         <%= link_to "Autocad", '', :class => "user-button btn btn-primary"%>
+         <%= link_to "Revit", '', :class => "user-button btn btn-primary"%>
+         <%= link_to "Vectorworks", '', :class => "user-button btn btn-primary"%>
 
-        <div style="display: inline-block;text-align: center;margin-left: 60px; white-space: nowrap;width:12em;">
-         <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
+       <div style="display: inline-block;text-align: center;margin-left: 60px; white-space: nowrap;width:12em;">
+         <%= form_tag(demo_path, :method => "get",  :style => "display:inline-block;") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;" %>
           <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
             <i class="glyphicon glyphicon-search"></i>
@@ -74,13 +75,13 @@
                 <%end%></span>
               <%end%></span><br>
 
-          <% if current_user?(micropost.user) %>
+          
             <span data-toggle="tooltip" title="Delete post!">
             <%= link_to micropost, :class => "download-button btn btn-primary form", :id=>"deletebutton", method: :delete, :style => "margin-left:5px;",
             data: { confirm: "You sure?" } do%>
              <i class="glyphicon glyphicon-trash"></i>
             <%end%>
-          <% end %></span>
+         </span>
         </div>
 
         <div style="border:1px solid grey; position:relative;display:block; margin-top: 15px;">
