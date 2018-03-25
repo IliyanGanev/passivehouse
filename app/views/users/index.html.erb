@@ -5,7 +5,11 @@
 
 
 <%= will_paginate %>
-
+<div class="center jumbotron" style="background: rgba(0, 0, 0, 0);margin-top: 0em;
+    left: 0;
+    position: relative;
+    width: 100%;
+    z-index: 10000;">
 <ul class="users">
   <% @users.each do |user| %>
     <li>
@@ -17,6 +21,7 @@
     </li>
   <% end %>
 </ul>
+</div>
 
 <%= will_paginate %>
 

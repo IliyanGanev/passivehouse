@@ -3,72 +3,6 @@
 
 <% if logged_in? %>
 
-<!--  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-    	<div class="col-md-8">
-      	<h3>Micropost Feed</h3>
-      	<%= render 'shared/feed' %>
-    	</div>
-    </div> --> 
-
-
-
-
-
-  <header style="background: black;
-    height: 5em;
-    left: 0;
-    line-height: 3em;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10000;">
-  <div class="container">
-   <!--  <%= link_to "passiveHousedetails", root_path, id: "logo" %> -->
-    <%= link_to image_tag("logo2.png"),root_path, id: "logo", style: "margin-top:6px;" %>
-    <nav>
-      
-      <ul class="nav navbar-nav navbar-right" style="margin-top: 25px;">
-        <li id='menu'><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
-        <% if logged_in? %>
-          <li><%= link_to "Users", users_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user %></li>
-              <!-- <li><%= link_to "Profile", user_path(current_user) %></li> -->
-              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-
-
-
-
-
-
 
     <div style="margin-top:7em;">
     	<aside class="col-md-4">
@@ -83,7 +17,7 @@
 
 
     	<div class="col-md-8">
-       <span style="margin-left: 40px;"> Filter:
+       <span style="margin-left: 40px;color:#00b19d;"> Filter:
          <%= link_to "All", root_path, :class => "user-button btn btn-primary", :style => "background:#00b19d;color:white;" %>
          <%= link_to "Autocad", autocad_path, :class => "user-button btn btn-primary"%>
          <%= link_to "Revit", revit_path, :class => "user-button btn btn-primary"%>
@@ -99,17 +33,17 @@
         </div></span>
 
 
-       <ul class="users" style="margin-top: 1em;">
+       <ul class="users" style="margin-top: 2em;margin-bottom: 4em;">
 
 
          <% @microposts.each do |micropost| %>
-         <li id="micropost-<%= micropost.id %>">
+         <li id="micropost-<%= micropost.id %>" style="border:1px solid #00b19d;background: rgba(0, 60, 60, 0.3);margin-bottom: 3px;">
           <span class="user" style="color:#00b19d;">Posted by: <%= link_to micropost.user.name, micropost.user,:class => "user-button btn btn-primary", :style => "padding:1px;" %></span><br><br>
           <span class="tag"><mark id="mark"><%= micropost.tag %></mark></span><br>
           
 
         <span class="content">
-           <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block', console.log(this.id+1)", :style => "cursor:zoom-in;display: inline-block;position: relative;width:400px;" if micropost.picture? %></span>
+           <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:400px;" if micropost.picture? %></span>
            <div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
             <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
             <div class="w3-modal-content w3-animate-zoom">
@@ -171,11 +105,8 @@
 </p>
 
 <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-<!--     <a href="#" class="btn btn-lg btn-primary">Sign up now!</a> -->
+<!-- <li><%= link_to "Demo", demo_path %></li> --> 
 </div>
-
-<!-- 	<%= link_to image_tag("logo.png", alt: "Logo"),
-'http://iliyanganev.com/' %> -->
 
 <% end %>
 

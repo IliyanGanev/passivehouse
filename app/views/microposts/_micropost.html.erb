@@ -1,10 +1,10 @@
-         <li id="micropost-<%= micropost.id %>" style="margin-top: 1em;background: lightgrey;">
+         <li id="micropost-<%= micropost.id %>" style="margin-top: 3em; border: 1px solid #00b19d;padding:1em;">
           <span class="user" style="color:#00b19d;">Posted by: <%= link_to micropost.user.name, micropost.user,:class => "user-button btn btn-primary", :style => "padding:1px;" %></span><br><br>
           <span class="tag"><mark id="mark"><%= micropost.tag %></mark></span><br>
           
 
         <span class="content">
-           <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block', console.log(this.id+1)", :style => "cursor:zoom-in;display: inline-block;position: relative;width:400px;" if micropost.picture? %></span>
+           <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:400px;" if micropost.picture? %></span>
            <div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
             <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
             <div class="w3-modal-content w3-animate-zoom">
@@ -14,7 +14,7 @@
 
 
 
-         <div style="border:1px solid green; display:inline-block;position:absolute;margin-left: 5px;height: 150px;">
+         <div style="border:1px solid #00b19d; display:inline-block;position:absolute;margin-left: 5px;height: 150px;">
             <span>
              <%if micropost.attachment?%>
               <span data-toggle="tooltip" title="Download file!">

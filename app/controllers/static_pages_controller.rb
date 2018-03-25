@@ -20,6 +20,10 @@ class StaticPagesController < ApplicationController
   def about 
   end
 
+  def demo 
+
+  end
+
   def contact
   end
   
