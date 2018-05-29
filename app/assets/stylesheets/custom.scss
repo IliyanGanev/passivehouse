@@ -112,7 +112,7 @@ footer ul li {
 input, textarea, select, .uneditable-input {
   border: 1px solid #00b19d;
   color:#00b19d;
-  background: black;
+  background: white;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
@@ -234,9 +234,9 @@ span.picture {
 }
 
 .btn-primary {
-  color: #00b19d;
+  color: black;
   border-color:#00b19d;
-  background-color: black;
+  background-color: #00b19d;
   border:1px solid #00b19d;
   border-radius:1px;
   cursor: pointer;
@@ -269,12 +269,12 @@ a{
 .download-button {
   margin: 4px;
   margin-top: 1em;
-  width:200px;
+  width:170px;
 }
 .user-button{
   color:#00b19d; 
   border-color: #00b19d;
-  background-color: black;
+  background-color: white;
   border-radius:2px;
   cursor: pointer;
 }
@@ -295,14 +295,14 @@ a{
     }
 
 .nav > li > a:hover {
-background: black;
+background: white;
 color:#00b19d;
  border-bottom:1px solid #00b19d;
 
     }
 
 .profilebutton{
-background:black;
+background:white;
 color:#00b19d;
 }
 

@@ -1,14 +1,11 @@
 <% provide(:title, 'Edit user') %>
 <% provide(:button_text, 'Save changes') %>
 
-   <%= render 'layouts/header' %>
-
      <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %> 
 
-     <%= render 'layouts/three' %> 
 
 <div style="background: rgba(0, 0, 0, 0.0);
   position: fixed;

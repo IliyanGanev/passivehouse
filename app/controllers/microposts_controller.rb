@@ -4,9 +4,10 @@ class MicropostsController < ApplicationController
 
 
   def index
-    @micropost  = current_user.microposts.build
-    @feed_items = current_user.feed.paginate(page: params[:page])
-
+    if logged_in?
+      @micropost  = current_user.microposts.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
     @microposts = Micropost.all
     if params[:search]
       @microposts = Micropost.search(params[:search]).order("created_at DESC").paginate(page: params[:page])
