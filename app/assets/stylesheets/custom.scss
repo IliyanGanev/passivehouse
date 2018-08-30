@@ -48,12 +48,12 @@ p {
   line-height: 1.7em;
 }
 
-#logo {
+/*#logo {
   float: left;
   margin-right: 10px;
   color: #fff;
   vertical-align:center;
-  height:10px;
+  height:10px;e
   padding-top: 6px;
 
   
@@ -64,39 +64,11 @@ p {
   color: #fff;
   text-decoration: none;
   font-size: 1.25em;
-}
+}*/
 
 
 /* footer */
 
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  /*border-top: 1px solid #eaeaea;*/
-  color: #777;
-}
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #00b19d;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 15px;
-}
 
 
 @mixin box_sizing {
@@ -167,7 +139,7 @@ input {
 
 /* microposts */
 
-/*.microposts {
+.microposts {
   list-style: none;
   padding: 0;
   li {
@@ -191,7 +163,7 @@ input {
     color: $gray-light;
     margin-left: 60px;
   }
-}*/
+}
 
 aside {
   textarea {
@@ -207,7 +179,7 @@ span.picture {
   }
 }
 
-.navbar{
+/*.navbar{
   background-color: #00b19d;
   border-bottom:none;
 
@@ -220,7 +192,7 @@ span.picture {
 }
 .navbar-inverse .navbar-nav > li > a:hover {
     color: grey;
-}
+}*/
 
 
 .footer {
@@ -290,20 +262,31 @@ a{
 .nav > li > a {
     position: relative;
     display: block;
-    padding: 5px 15px;
-
+    color: #666666;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  /*  padding: 5px 15px;*/
+height: 100px;
+padding: 40px 20px;
+/*padding-top: 40px;*/
     }
 
 .nav > li > a:hover {
-background: white;
-color:#00b19d;
- border-bottom:1px solid #00b19d;
+  background-color: black;
+  color: white;
+  height: 100px;
+ /* background: white;*/
+  /*border-bottom: 1px solid rgba(136, 136, 136, 0.25);*/
+}
 
-    }
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: black;
+  color: white;
+}
 
 .profilebutton{
-background:white;
-color:#00b19d;
+  background:white;
+  color:#00b19d;
 }
 
 .field:focus{
