@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get  '/contact', to: 'static_pages#contact'
   get  '/demo', to: 'static_pages#demo'
 
+  get  '/upload_form', to: 'static_pages#upload_form'
+
   get  '/autocad', to: 'static_pages#autocad'
   get  '/revit', to: 'static_pages#revit'
   get  '/vectorworks', to: 'static_pages#vectorworks'

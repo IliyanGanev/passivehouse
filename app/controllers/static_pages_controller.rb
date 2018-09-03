@@ -33,6 +33,16 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def upload_form
+    if logged_in?
+      @micropost  = current_user.microposts.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    else
+      # @microposts = Micropost.where(tag: 'AutoCad').paginate(page: params[:page])
+      render 'sessions/new'
+    end
+  end
   
   def autocad
     if logged_in?

@@ -22,23 +22,26 @@
    <%= link_to image_tag("logo6.png"),root_path, id: "logo", style: "margin-top:0px;" %>
  </div>
 
-<div style="position: absolute;margin-left: 500px;margin-top:25px;>
+ <div style="margin-right: 20px;background-color:red;">
+
+ </div>
+
+<!--  <div style="position: absolute;margin-left: 500px;margin-top:27px;>
 
           <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;background:lightgrey;width:25em;" %>
-          <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
+           <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;margin-right: 3em;" do%>
             <i class="glyphicon glyphicon-search"></i>
+            <%= text_field_tag :search, params[:search], placeholder: "...",:style => "display:inline;width:5em;border:1px solid white;margin-left:1em;" %>
+         
           <%end%>
-         <% end %>
-      
-  
- </div> 
+         <% end %>  
+ </div>  --> 
 
  <nav>
 
   <ul class="nav navbar-nav navbar-right" style="margin-right: 70px">
-    <li id='menu'><%= link_to "Home", root_path %></li>
-    <li><%= link_to "Help", help_path %></li>
+  <!--   <li id='menu'><%= link_to "Home", root_path %></li> -->
+    <li><%= link_to "About", help_path %></li>
     <% if logged_in? %>
     <li><%= link_to "Users", users_path %></li>
     <li class="dropdown">
