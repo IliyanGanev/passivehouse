@@ -29,7 +29,6 @@
 
 
 
-
        <span style="margin-left: 40px;color:#00b19d;"> Filter:
          <%= link_to "All", root_path, :class => "user-button btn btn-primary", :style => "background:#00b19d;color:white;" %>
          <%= link_to "Autocad", autocad_path, :class => "user-button btn btn-primary"%>
@@ -105,64 +104,59 @@
 
 
 
-  <div class="col-md-8">
+<div style="margin-top:10em;border:1px solid green;padding:4em;float:right; position:fixed;">
 
 
-  <div style="margin-left: 40px;width:40em;margin-top:5em;">
-         <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;background:lightgrey;width:25em;" %>
-          <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
-            <i class="glyphicon glyphicon-search"></i>
-          <%end%>
-         <% end %>
-        </div><br>
+  <div style="margin-left: 4px;width:40em;margin-top:0em;">
+    <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;background:lightgrey;width:25em;" %>
+      <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
+        <i class="glyphicon glyphicon-search"></i>
+      <%end%>
+    <% end %>
+  </div><br>
 
 
 
-       <span style="margin-left: 40px;color:#00b19d;"> Filter:
-         <%= link_to "All", root_path, :class => "user-button btn btn-primary", :style => "background:#00b19d;color:white;" %>
-         <%= link_to "Autocad", autocad_path, :class => "user-button btn btn-primary"%>
-         <%= link_to "Revit", revit_path, :class => "user-button btn btn-primary"%>
-         <%= link_to "Vectorworks", vectorworks_path, :class => "user-button btn btn-primary"%>
-
- </span>
-
-
-       <ul class="users" style="margin-top: 2em;margin-bottom: 4em;">
+  <span style="margin-left: 4px;color:#00b19d;"> Filter:
+    <%= link_to "All", root_path, :class => "user-button btn btn-primary", :style => "background:#00b19d;color:white;" %>
+    <%= link_to "Autocad", autocad_path, :class => "user-button btn btn-primary"%>
+    <%= link_to "Revit", revit_path, :class => "user-button btn btn-primary"%>
+    <%= link_to "Vectorworks", vectorworks_path, :class => "user-button btn btn-primary"%>
+  </span>
 
 
-         <% @microposts.each do |micropost| %>
-         <li id="micropost-<%= micropost.id %>" style="border:1px solid #00b19d;background: rgba(0, 60, 60, 0.3);margin-bottom: 3px;">
-          <span class="user" style="color:#00b19d;">Posted by: <%= link_to micropost.user.name, micropost.user,:class => "user-button btn btn-primary", :style => "padding:1px;" %></span><br><br>
-          <span class="tag"><mark id="mark"><%= micropost.tag %></mark></span><br>
+  <ul class="users" style="margin-top: 2em;margin-bottom: 4em;margin-right: 0px; border:1px solid purple;">
+
+    <% @microposts.each do |micropost| %>
+      <li id="micropost-<%= micropost.id %>" style="border:1px solid red;background: rgba(0, 60, 60, 0.3);margin-bottom: 3px;vertical-align: top;">
+        <span class="user" style="color:#00b19d;">Posted by: <%= link_to micropost.user.name, micropost.user,:class => "user-button btn btn-primary", :style => "padding:1px;" %></span><br><br>
+        <!-- <span class="tag"><mark id="mark"><%= micropost.tag %></mark></span><br> -->
           
 
         <span class="content">
-           <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:400px;margin-bottom:8px;" if micropost.picture? %></span>
-           <div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
+        <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:200px;margin-bottom:8px;" if micropost.picture? %></span>
+          <div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
             <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
             <div class="w3-modal-content w3-animate-zoom">
-             <%= image_tag micropost.picture.url, :style => "width:100%" if micropost.picture? %>
-           </div>
-            </div><br>
+              <%= image_tag micropost.picture.url, :style => "width:100%" if micropost.picture? %>
+            </div>
+          </div><br>
 
 
+          <%if micropost.attachment?%>
+            <span data-toggle="tooltip" title="Download <%= micropost.tag%> file!">
+              <%= link_to micropost.attachment_url, :class => "download-button", :style => "display:inline; position: relative; margin:1px;" do%>
+                <i class="glyphicon glyphicon-download-alt" id="icon"></i> 
+              <%end%></span>
+          <%end%>
 
-       
-        
-             <%if micropost.attachment?%>
-              <span data-toggle="tooltip" title="Download <%= micropost.tag%> file!">
-                <%= link_to micropost.attachment_url, :class => "download-button btn btn-primary form", :id =>"downloadbutton", :style => "display:inline; position: relative; margin:5px;" do%>
-                    <i class="glyphicon glyphicon-download-alt" id="icon"></i> download file    
-                <%end%></span>
-              <%end%>
-
-            <%if micropost.picture?%>
+<!--             <%if micropost.picture?%>
               <span data-toggle="tooltip" title="Download preview!">
                 <%= link_to micropost.picture_url, :class => "download-button btn btn-primary form", :id =>"downloadbutton", :style => "display:inline; position: relative; margin:5px;" do%>
                     <i class="glyphicon glyphicon-download" id="icon"></i> download preview   
                 <%end%></span>
-              <%end%>
+              <%end%> -->
 
           <% if current_user?(micropost.user) %>
             <span data-toggle="tooltip" title="Delete post!">
@@ -173,11 +167,13 @@
           <% end %></span>
         
 
-        <div style="border:1px solid grey; position:relative;display:block; margin-top: 15px;">
-          <p style="color:black;padding:5px;"><%= micropost.content %></p>
-        <span class="timestamp">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</span></span>
-      </div>
+        <!-- <div style="border:1px solid grey;margin-top: 10px;width: 200px;text-align: center;"> -->
+          <p style="color:black;margin-top: 3px;"><%= micropost.content %></p>
+       <!--  <span class="timestamp">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</span></span> -->
+   <!--      </div> -->
+
       </li>
+
     <%end%>
 
 

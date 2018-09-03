@@ -4,16 +4,16 @@ class Micropost < ApplicationRecord
   mount_uploader :picture, PictureUploader
   mount_uploader :attachment, AttachmentUploader
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 2000 }
-  validates :tag, presence: true
+  validates :content, presence: true, length: { maximum: 150 }
+  # validates :tag, presence: true
   validates :attachment, presence: true
   validate :picture_size
   validate :attachment_size
 
 
   def self.search(search)
-  where("content LIKE ?", "%#{search}%") 
-end
+    where("content LIKE ?", "%#{search}%") 
+  end
 
   private
 

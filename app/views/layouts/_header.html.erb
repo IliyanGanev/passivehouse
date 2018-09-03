@@ -19,8 +19,21 @@
    position: absolute;
    top: 25%;
    left: 0;border-right: 2px solid black;">
-   <%= link_to image_tag("logo5.png"),root_path, id: "logo", style: "margin-top:0px;" %>
+   <%= link_to image_tag("logo6.png"),root_path, id: "logo", style: "margin-top:0px;" %>
  </div>
+
+<div style="position: absolute;margin-left: 500px;margin-top:25px;>
+
+          <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;background:lightgrey;width:25em;" %>
+          <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
+            <i class="glyphicon glyphicon-search"></i>
+          <%end%>
+         <% end %>
+      
+  
+ </div> 
+
  <nav>
 
   <ul class="nav navbar-nav navbar-right" style="margin-right: 70px">

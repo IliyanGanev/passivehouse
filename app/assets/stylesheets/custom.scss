@@ -4,7 +4,8 @@
 /* universal */
 
 body {
- 
+   
+    
 }
 
 section {
@@ -131,20 +132,24 @@ input {
   list-style: none;
   margin: 0;
   li {
-  padding: 10px 20px ;
-    border: 2px solid $gray-lighter;
-
+    display: inline-block;
+    text-align: center;
+    padding: 2px 2px 2px 2px;
+    border: 2px solid yellow;
+    width:250px;
+    margin-left: 7px;
+    margin-top: 7px;
   }
 }
 
 /* microposts */
 
-.microposts {
+/*microposts {
   list-style: none;
   padding: 0;
   li {
     padding: 10px 0;
-    border-top: 2px solid #e8e8e8;
+    border-top: 2px solid #e8e8e8;    width: 1070px;
   }
   .user {
     margin-top: 5em;
@@ -177,7 +182,7 @@ span.picture {
   input {
     border: 0;
   }
-}
+}*/
 
 /*.navbar{
   background-color: #00b19d;
@@ -196,37 +201,37 @@ span.picture {
 
 
 .footer {
-    position: fixed;
-    height: 30px;
-    
-    bottom: 0px;
-    left: 20px;
-    right: 20px;
-   
+  position: fixed;
+  height: 30px; 
+  bottom: 0px;
+  left: 20px;
+  right: 20px; 
 }
 
 .btn-primary {
   color: black;
-  border-color:#00b19d;
+/*  border-color:#00b19d;
   background-color: #00b19d;
   border:1px solid #00b19d;
-  border-radius:1px;
+  border-radius:1px;*/
   cursor: pointer;
 }
+
 .btn-primary:hover {
   color: black; 
-  border-color: #00b19d;
+/*  border-color: #00b19d;
   background-color: #00b19d;
-  border-radius:1px;
+  border-radius:1px;*/
   cursor: pointer;
 }
+
 .container .jumbotron, .container-fluid .jumbotron{
   color:#00b19d;
-  margin-top:15em;
+  margin-top:25em;
   background-color:white;
 }
 
-a{
+a {
   color: #00b19d;
 }
 
@@ -239,10 +244,12 @@ a{
 }
 
 .download-button {
+  color:#666666;
   margin: 4px;
   margin-top: 1em;
-  width:170px;
+  width:50px;
 }
+
 .user-button{
   color:#00b19d; 
   border-color: #00b19d;
@@ -250,6 +257,7 @@ a{
   border-radius:2px;
   cursor: pointer;
 }
+
 .user-button:hover {
   color: black;
   border-color:#00b19d;
@@ -258,18 +266,15 @@ a{
   border-radius:2px;
 }
 
-
 .nav > li > a {
-    position: relative;
-    display: block;
-    color: #666666;
-    font-size: 1.6rem;
-    text-transform: uppercase;
-  /*  padding: 5px 15px;*/
-height: 100px;
-padding: 40px 20px;
-/*padding-top: 40px;*/
-    }
+  position: relative;
+  display: block;
+  color: #666666;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  height: 100px;
+  padding: 40px 20px;
+}
 
 .nav > li > a:hover {
   background-color: black;

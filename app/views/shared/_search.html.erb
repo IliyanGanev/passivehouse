@@ -1,0 +1,8 @@
+  <div>
+  	<%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
+  	<%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;background:lightgrey;width:25em;" %>
+  	<%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
+  	<i class="glyphicon glyphicon-search"></i>
+  	<%end%>
+  	<% end %>
+  </div>
