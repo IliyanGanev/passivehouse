@@ -52,12 +52,15 @@
 
     <% @microposts.each do |micropost| %>
       <li id="micropost-<%= micropost.id %>" style="border:1px solid red;background: white;vertical-align: top;">
-        <span class="" style="color:#666666;">By <%= link_to micropost.user.name, micropost.user,:class => "", :style => "padding:1px;color:#666666;text-decoration: underline;" %></span><br><br>
+        <span class="" style="color:#666666;">By <%= link_to micropost.user.name, micropost.user,:class => "", :style => "font-size:13px;padding:1px;color:#666666;text-decoration: underline;" %></span><br><br>
         <!-- <span class="tag"><mark id="mark"><%= micropost.tag %></mark></span><br> -->
           
 
         <span class="content">
-        <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:200px;margin-bottom:8px;border:1px solid #666666;" if micropost.picture? %></span>
+          <div style="position:relative;border:1px solid red;width:210px;height:150px;margin-left: 10px;">
+
+            <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:200px;max-height:160px;margin-bottom:8px;border:1px solid #666666;" if micropost.picture? %></span>
+          </div>
           <div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
             <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
             <div class="w3-modal-content w3-animate-zoom">
@@ -93,7 +96,7 @@
         
 
         <!-- <div style="border:1px solid grey;margin-top: 10px;width: 200px;text-align: center;"> -->
-          <p style="margin-top: 10px; color: black; font-size: 13px;"><%= micropost.content %></p>
+          <p style="margin-top: 10px;color: black; font-size: 13px;word-break: break-word;"><%= micropost.content %></p>
        <!--  <span class="timestamp">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</span></span> -->
    <!--      </div> -->
 
@@ -154,7 +157,9 @@
           
 
         <span class="content">
-        <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:200px;margin-bottom:8px;border:1px solid #666666;" if micropost.picture? %></span>
+          <div style="position:relative;border:1px solid red;width:210px;height:150px;margin-left: 10px;">
+            <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:200px;max-height:160px; margin-bottom:8px;border:1px solid #666666;" if micropost.picture? %></span>
+          </div>
           <div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
             <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
             <div class="w3-modal-content w3-animate-zoom">
@@ -180,11 +185,11 @@
             <%end%>
           <% end %></span>
         
-
-        <!-- <div style="border:1px solid grey;margin-top: 10px;width: 200px;text-align: center;"> -->
-          <p style="margin-top: 10px; color: black; font-size: 13px;"><%= micropost.content %></p>
-       <!--  <span class="timestamp">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</span></span> -->
-   <!--      </div> -->
+<!-- 
+        <div style="border:1px solid grey;margin-top: 10px;width: 200px;text-align: center;"> -->
+          <p style="margin-top: 10px; color: black; font-size: 13px;word-break: break-word;"><%= micropost.content %></p>
+        <!--   <span class="timestamp">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</span></span>  -->
+      <!--   </div>  -->
 
       </li>
 

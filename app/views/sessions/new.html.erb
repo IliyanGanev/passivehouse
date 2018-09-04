@@ -6,21 +6,23 @@
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %> 
   
-  <div style="background: rgba(0, 0, 0, 0.0);
-  position: fixed;
-   top: 50%;
-   left: 50%;
-   margin-top: 20em;
-   transform: translate(-50%, -50%);
+<div style="background: rgba(0, 0, 0, 0.0);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: 20em;
+    transform: translate(-50%, -50%);
     top: 6em;
     width: 60%;
     z-index: 10000;">
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <h1 style="color:black;">Log in</h1>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
 
  
-    <%= form_for(:session, url: login_path) do |f| %>
+      <%= form_for(:session, url: login_path) do |f| %>
 
 
       <%= f.email_field :email, placeholder: "Email", class: 'form-control', style: ' background: rgba(144, 144, 144, 0.25);border:none;' %>
@@ -34,12 +36,12 @@
         <span>Remember me on this computer</span>
       <% end %>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
+      <%= f.submit "Log in", class: "btn btn-primary", :style=>"background-color:black;color:white;border:1px solid black;" %>
+      <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    </div>
   </div>
-</div>
 </div>
   
 
