@@ -2,15 +2,15 @@ class StaticPagesController < ApplicationController
   
   def home
 
-    render html: '<p>nothing</p>'.html_safe
-    # if logged_in?
-    #   @micropost  = current_user.microposts.build
-    #   @feed_items = current_user.feed.paginate(page: params[:page])
-    # end
+    # render html: '<p>nothing</p>'.html_safe
+    if logged_in?
+      @micropost  = current_user.microposts.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
 
-    #   @microposts = Micropost.all.paginate(page: params[:page])
+      @microposts = Micropost.all.paginate(page: params[:page])
      
-    #    @users = User.where(activated: true).paginate(page: params[:page])
+       @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   def help

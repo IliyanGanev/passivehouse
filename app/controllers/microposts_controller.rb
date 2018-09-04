@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
-   before_action :correct_user,   only: :destroy
+  before_action :logged_in_user, only: [:create, :destroy, :edit]
+   before_action :correct_user,  only: [:destroy, :edit]
 
 
   def index
@@ -22,12 +22,34 @@ class MicropostsController < ApplicationController
       flash[:success] = "Micropost created!"
       redirect_to root_url
     else
+      p 'sadf'
       @feed_items = []
       @microposts = Micropost.all.paginate(page: params[:page])
-      render 'static_pages/home'
+      render 'static_pages/upload_form'
 
     end
   end
+
+
+
+
+def edit
+    @micropost = Micropost.find(params[:id])
+  end
+
+  def update
+    @micropost = Micropost.find(params[:id])
+    if @micropost.update_attributes(micropost_params)
+      flash[:success] = "Profile updated"
+      redirect_to root_url 
+    else
+      render 'edit'
+    end
+  end
+
+
+
+
 
   def destroy
     @micropost.destroy
