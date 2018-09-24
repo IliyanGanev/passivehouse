@@ -1,5 +1,5 @@
 
-<% provide(:title, "Home") %>
+<% provide(:title, "Search") %>
 
 <% if logged_in? %>
 
@@ -29,7 +29,7 @@
         <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;width:10em;" %>
     <% end %> <br>
 
-   <span><i class="glyphicon glyphicon-upload"></i><%= link_to "upload", upload_form_path, :style=> "color: #666666; font-size: 1.6rem; text-transform: uppercase; cursor: pointer;" %></span>
+   <span><%= link_to "upload", upload_form_path, :style=> "color: #666666; font-size: 1.6rem; text-transform: uppercase; cursor: pointer;" %></span>
   </div>
 
 

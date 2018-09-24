@@ -29,7 +29,7 @@
         <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;width:10em;" %>
     <% end %> <br>
 
-   <span><i class="glyphicon glyphicon-upload"></i><%= link_to "upload", upload_form_path, :style=> "color: #666666; font-size: 1.6rem; text-transform: uppercase; cursor: pointer;" %></span>
+   <span><%= link_to "upload", upload_form_path, :style=> "color: #666666; font-size: 1.6rem; text-transform: uppercase; cursor: pointer;" %></span>
   </div>
 
 
@@ -77,7 +77,7 @@
           <%end%>
 
 
-          <% if current_user?(micropost.user) %>
+          <% if current_user?(micropost.user) || current_user.admin? %>
             <span data-toggle="tooltip" title="Delete post!">
             <%= link_to micropost, :class => "download-button btn btn-primary form", :id=>"downloadbutton", method: :delete, :style => "display:inline; position: relative; margin:1px;width:40px;background:black;color:white; padding:3px 20px 3px 20px;border-color:black;",
             data: { confirm: "Are you sure?" } do%>

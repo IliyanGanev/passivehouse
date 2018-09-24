@@ -19,10 +19,9 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "Micropost created!"
+      # flash[:success] = "Micropost created!"
       redirect_to root_url
     else
-      p 'sadf'
       @feed_items = []
       @microposts = Micropost.all.paginate(page: params[:page])
       render 'static_pages/upload_form'
@@ -40,7 +39,7 @@ def edit
   def update
     @micropost = Micropost.find(params[:id])
     if @micropost.update_attributes(micropost_params)
-      flash[:success] = "Profile updated"
+      # flash[:success] = "Profile updated"
       redirect_to root_url 
     else
       render 'edit'
@@ -53,7 +52,7 @@ def edit
 
   def destroy
     @micropost.destroy
-    flash[:success] = "Micropost deleted"
+    # flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
   end
 
