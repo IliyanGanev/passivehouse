@@ -34,7 +34,7 @@
 
 
 
-<div style="display:inline-block; margin-top:10em;/*border:1px solid green;*/padding:1em;margin-right: 0px;margin-left: 0em;">
+<div style="display:inline-block; margin-top:10em;/*border:1px solid green;*/padding:1em;width:100%;">
 
 
 
@@ -132,7 +132,7 @@
         <%= button_tag :type=>"submit", :name => nil, :class => "glyphicon glyphicon-search", :style => "display:inline;width:40px;height:30px;" do%>
           <!-- <i class="glyphicon glyphicon-search"></i> -->
         <%end%>
-        <%= text_field_tag :search, params[:search], placeholder: "Search...",:style => "display:inline;width:10em;border:none;" %>
+        <%= text_field_tag :search, params[:search], placeholder: "SEARCH...",:style => "display:inline;width:10em;border:none;" %>
     <% end %> <br>
 
     <%= link_to "log in to upload...", upload_form_path, :style=> "color: #666666; font-size: 1.6rem; text-transform: uppercase; cursor: pointer;" %>
@@ -143,14 +143,14 @@
 
 
 
-<div style="display:inline-block; margin-top:10em;/*border:1px solid green*/;padding:1em;margin-right: 0px;margin-left: 0em;">
+<div style="display:inline-block; margin-top:10em;/*border:1px solid green;*/padding:1em;width:100%;">
 
 
 
-  <ul class="users" style="margin-top: 0em;margin-bottom: 0em;margin-right: 0px;margin-left:14em; /*border:1px solid purple*/;text-align: center;">
+  <ul class="users" style="margin-top: 0em;margin-bottom: 0em;margin-right: 0px;margin-left:14em; /*border:1px solid purple;*/text-align: center;">
 
     <% @microposts.each do |micropost| %>
-      <li id="micropost-<%= micropost.id %>" style="/*border:1px solid red*/;background: white;vertical-align: top;">
+      <li id="micropost-<%= micropost.id %>" style="/*border:1px solid red;*/background: white;vertical-align: top;">
         <span class="" style="color:#666666;">By <%= link_to micropost.user.name, micropost.user,:class => "", :style => "font-size: 13px; padding:1px;color:#666666;text-decoration: underline;" %></span><br><br>
         <!-- <span class="tag"><mark id="mark"><%= micropost.tag %></mark></span><br> -->
           
