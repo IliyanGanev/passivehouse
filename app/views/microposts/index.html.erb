@@ -23,13 +23,12 @@
 
 
     <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
-        <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
-          <i class="glyphicon glyphicon-search"></i>
+        <%= button_tag :type=>"submit", :name => nil, :class => "glyphicon glyphicon-search", :style => "display:inline;width:40px;height:30px;" do%>
         <%end%>
-        <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;width:10em;" %>
+        <%= text_field_tag :search, params[:search], placeholder: "SEARCH...",:style => "display:inline;width:10em;border:none;" %>
     <% end %> <br>
 
-   <span><%= link_to "upload", upload_form_path, :style=> "color: #666666; font-size: 1.6rem; text-transform: uppercase; cursor: pointer;" %></span>
+   <span><%= link_to "upload...", upload_form_path, :style=> "color: #666666; font-size: 1.6rem; text-transform: uppercase; cursor: pointer;" %></span>
   </div>
 
 
@@ -130,13 +129,12 @@
 
 
     <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
-        <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
-          <i class="glyphicon glyphicon-search"></i>
+        <%= button_tag :type=>"submit", :name => nil, :class => "glyphicon glyphicon-search", :style => "display:inline;width:40px;height:30px;" do%>
         <%end%>
-        <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;width:10em;" %>
+        <%= text_field_tag :search, params[:search], placeholder: "SEARCH...",:style => "display:inline;width:10em; border:none;" %>
     <% end %> <br>
 
-    <%= link_to "upload", upload_form_path, :style=> "color: #666666; font-size: 1.6rem; text-transform: uppercase; cursor: pointer;" %>
+    <%= link_to "log in to upload...", upload_form_path, :style=> "color: #666666; font-size: 1.6rem; text-transform: uppercase; cursor: pointer;" %>
 
   </div>
 
