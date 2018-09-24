@@ -27,9 +27,9 @@
               activated_at: Time.zone.now)
 end
 
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  tag = %w[AutoCad Revit Vectorworks].sample
-  users.each { |user| user.microposts.create!(content: content, tag: tag) }
-end
+# users = User.order(:created_at).take(6)
+# 50.times do
+#   content = Faker::Lorem.sentence(5)
+#   tag = %w[AutoCad Revit Vectorworks].sample
+#   users.each { |user| user.microposts.create!(content: content, tag: tag) }
+# end

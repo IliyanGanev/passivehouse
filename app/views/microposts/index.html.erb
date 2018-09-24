@@ -14,12 +14,12 @@
 
   <div style="margin-left: 70px;width:40em;margin-top:16em;display:inline-block;position:fixed;">
 
-    <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
+ <!--    <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;width:10em;" %>
       <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
         <i class="glyphicon glyphicon-search"></i>
       <%end%>
-    <% end %><br>
+    <% end %><br> -->
 
 
     <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
@@ -35,7 +35,7 @@
 
 
 
-<div style="display:inline-block; margin-top:10em;border:1px solid green;padding:1em;margin-right: 0px;margin-left: 0em;">
+<div style="display:inline-block; margin-top:10em;/*border:1px solid green;*/padding:1em;margin-right: 0px;margin-left: 0em;">
 
 
 
@@ -48,16 +48,16 @@
   </span> -->
 
 
-  <ul class="users" style="margin-top: 0em;margin-bottom: 0em;margin-right: 0px;margin-left:14em; border:1px solid purple;text-align: center;">
+  <ul class="users" style="margin-top: 0em;margin-bottom: 0em;margin-right: 0px;margin-left:14em; /*border:1px solid purple;*/text-align: center;">
 
     <% @microposts.each do |micropost| %>
-      <li id="micropost-<%= micropost.id %>" style="border:1px solid red;background: white;vertical-align: top;">
+      <li id="micropost-<%= micropost.id %>" style="/*border:1px solid red;*/background: white;vertical-align: top;">
         <span class="" style="color:#666666;">By <%= link_to micropost.user.name, micropost.user,:class => "", :style => "font-size:13px;padding:1px;color:#666666;text-decoration: underline;" %></span><br><br>
         <!-- <span class="tag"><mark id="mark"><%= micropost.tag %></mark></span><br> -->
           
 
         <span class="content">
-          <div style="position:relative;border:1px solid red;width:210px;height:150px;margin-left: 10px;">
+          <div style="position:relative;/*border:1px solid red;*/width:210px;height:150px;margin-left: 10px;">
 
             <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:200px;max-height:160px;margin-bottom:8px;border:1px solid #666666;" if micropost.picture? %></span>
           </div>
@@ -121,12 +121,12 @@
 
   <div style="margin-left: 70px;width:40em;margin-top:16em;display:inline-block;position:fixed;">
 
-    <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
+<!--     <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search..",:style => "display:inline;width:10em;" %>
       <%= button_tag :type=>"submit", :name => nil, :class => "user-button btn btn-primary", :style => "display:inline;width:40px;height:30px;" do%>
         <i class="glyphicon glyphicon-search"></i>
       <%end%>
-    <% end %><br>
+    <% end %><br> -->
 
 
     <%= form_tag(microposts_path, :method => "get",  :style => "display:inline-block;") do %>
@@ -144,20 +144,20 @@
 
 
 
-<div style="display:inline-block; margin-top:10em;border:1px solid green;padding:1em;margin-right: 0px;margin-left: 0em;">
+<div style="display:inline-block; margin-top:10em;/*border:1px solid green*/;padding:1em;margin-right: 0px;margin-left: 0em;">
 
 
 
-  <ul class="users" style="margin-top: 0em;margin-bottom: 0em;margin-right: 0px;margin-left:14em; border:1px solid purple;text-align: center;">
+  <ul class="users" style="margin-top: 0em;margin-bottom: 0em;margin-right: 0px;margin-left:14em; /*border:1px solid purple*/;text-align: center;">
 
     <% @microposts.each do |micropost| %>
-      <li id="micropost-<%= micropost.id %>" style="border:1px solid red;background: white;vertical-align: top;">
-        <span class="" style="color:#666666;">By <%= link_to micropost.user.name, micropost.user,:class => "", :style => "padding:1px;color:#666666;text-decoration: underline;" %></span><br><br>
+      <li id="micropost-<%= micropost.id %>" style="/*border:1px solid red*/;background: white;vertical-align: top;">
+        <span class="" style="color:#666666;">By <%= link_to micropost.user.name, micropost.user,:class => "", :style => "font-size: 13px; padding:1px;color:#666666;text-decoration: underline;" %></span><br><br>
         <!-- <span class="tag"><mark id="mark"><%= micropost.tag %></mark></span><br> -->
           
 
         <span class="content">
-          <div style="position:relative;border:1px solid red;width:210px;height:150px;margin-left: 10px;">
+          <div style="position:relative;/*border:1px solid red*/;width:210px;height:150px;margin-left: 10px;">
             <span><%= image_tag micropost.picture.url, :id => micropost.id, :onclick => "document.getElementById(this.id+1).style.display='block'", :style => "cursor:zoom-in;display: inline-block;position: relative;width:200px;max-height:160px; margin-bottom:8px;border:1px solid #666666;" if micropost.picture? %></span>
           </div>
           <div id="<%=micropost.id%>1" class="w3-modal" onclick="this.style.display='none'">
