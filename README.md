@@ -1,12 +1,11 @@
-[http://www.passivehousedetails.org
-](http://www.passivehousedetails.org)
+[http://www.passivehousedetails.org](http://www.passivehousedetails.org)
+
 [https://passivehousedetails.herokuapp.com](https://passivehousedetails.herokuapp.com)
 
 
 You will need:
 
-Ruby 2.3,
-Rails 5
+Ruby 2.3 and Rails 5
 
 To make sure the right gem versions(in Gemfile) are installed:
 
